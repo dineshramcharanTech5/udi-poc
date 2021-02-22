@@ -28,7 +28,7 @@ Now run the initialization.java inside registration.client file.
 
 If you have ran the Registration client prior to this you may have faced an error as below:
 
-![Intellij IDE Error](Intellij_Error.png?raw=true)
+![Intellij IDE Error](Intellij_Error.png)
 
 This error comes due to the manifest file missing based on your db.conf. 
 In order to resolve this you may have to visit the place you built the registration client prior to this and locate the MANIFEST.MF and copy it to the main directory of your cloned registration repo.
