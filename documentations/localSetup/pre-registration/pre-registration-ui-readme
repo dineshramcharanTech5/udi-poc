@@ -1,0 +1,170 @@
+# Steps leading to successful docker image deployment in ICTA SL UDI POC Infrstrature setup ( Sandbox Env.)
+ 
+
+#### This guide include steps that can be perfomed to build and deploy Pre-Registration UI module from private docker registry (sDocker Hub)
+
+###Instructions :
+
+
+1. Make a directory and switch to it in order to set up to work on building the angular
+
+      cd /home/icta-mosip/
+
+2. Know your environmnet and make sure following pre requisites are already set up
+
+   git, node/npm, Angular CLI and docker 
+
+
+  For (Red Hat 4.8.5-44) Environment
+
+  cat /proc/version
+  curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
+  sudo yum install nodejs              
+
+  node --version
+  npm --version
+
+  npm install -g @angular/cli     # Getting Angular latest 
+  ng version
+
+  docker -version
+
+
+3. Clone MOSIP’s mosip-ref implmentation repository (https://github.com/ICTASL/mosip-ref-impl.git). into directory created as above
+    git clone https://github.com/ICTASL/mosip-ref-impl.git
+
+    note : currently above is forked from mosip/mosip-ref-impl repository
+
+
+4.  Update .dockerignore  and Dockerfile  accordingly  ( Currently default has taken and need to be update after verfiying from Mosip Team)  
+
+
+#### Following steps have to performed upon proper updation of Step 4.
+
+5.  Build the Angular app from pre-registration-ui directory  
+    
+    ng build --prod --base-href .
+
+
+6.  Login into related Docker Hub
+    
+     docker login --username=<user-name> --password=<password>
+     
+     docker login --username=udipoc --password=<password>
+
+7.  list existing images list 
+
+    docker images
+
+    
+8.  Build the docker image 
+
+     docker build -t <docker-username/image-name-with-version>  . 
+
+     docker build -t uidipoc/pre-registration-ui:1.1.3 .
+
+
+9. Tag Docker image
+
+  docker tag -t <docker-image-id>  <docker-image>
+  
+  docker tag 7203d7933aed  udipoc/pre-registration-ui:1.1.3
+
+
+10. Pushing Docker image to repository you wanted
+
+
+   docker push udipoc/pre-registration-ui:1.1.3
+
+
+11. Deleting unused images
+
+   docker image rm --force a348fc3cf8fa
+
+
+12. Pulling images
+
+  
+  docker  pull udipoc/pre-registration-ui:1.1.3
+
+
+
+
+#### Steps for confgiuring to pull docker images from private environment
+
+
+
+1. Switch to mosip user in sandbox deployed server
+    
+    sudo su - mosipuser
+
+
+2. Change to /home/mosipuser/mosip-infra/deployment/sandbox-v2
+
+  cd /home/mosipuser/mosip-infra/deployment/sandbox-v2
+
+
+3. List the pre reg UI related modules running and stop them
+    kc1 get pods | grep prereg
+      
+    helm1 delete prereg 
+
+
+
+4.  Set a secret in secrets.yml if not set up 
+
+    av edit secrets.yml 
+
+      docker:
+        server: '' # Default is docker hub
+        username: 'udipoc'
+        password: '<password>'
+
+
+   kc1 get secret         # toc check wether the secret has taken by the system
+
+4. Make changes to all.yml to load images from  private repository 
+
+    nano group_vars/all.yml
+      
+      hub:
+      private: true  # For private repo on Docker Hub, set this to true, and set credentials in secrets.yml
+      keyname: <plaintext secret>  # Name of kubernetes secret
+
+
+5. Edit versions.yml to reflect docker image changes required
+
+    ui:
+        'prereg-ui': 'udipoc/pre-registration-ui:1.1.3'
+
+
+6. Optional step 
+ 
+ If you want to create the docker secrets after the cluster is created please run the below command from sandboxv2 directory in Console:
+
+for mz:
+
+an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.mz.kube_config}}"
+
+for dmz:
+
+an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.dmz.kube_config}}"       
+
+
+8. Push the images from Docker Hub after login successfully
+  
+  docker  pull udipoc/pre-registration-ui:1.1.3
+
+
+9 . Opern tmux terminal session and execute prereg module related Ansible script to load modules  
+
+    tmux
+    an playbooks/prereg.yml
+
+a0. Check images have been loaded
+ 
+     kc1 get pods | grep prereg
+
+
+
+### Note : This guide subject to revision based on updates rom the MOSIP Team
