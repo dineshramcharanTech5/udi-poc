@@ -41,4 +41,4 @@ This error comes due to the IDE configuration of command line execution. Mostly 
 Open ‘edit run/debug configuration’ dialog.
 Select Edit configurations and select Initialization.
 As shown in the below image the shorten command line is set to ‘user-local default none’. You need to change that to ‘@argFiles (java9+)’. If that also throws the same error try other options in the dropdown.
-![Configuration dialog](configuration_dialog.jpg?raw=true)
+![Configuration dialog](https://github.com/ICTASL/UDI-poc/blob/master/documentations/localSetup/registration-client/configuration_dialog.JPG)
