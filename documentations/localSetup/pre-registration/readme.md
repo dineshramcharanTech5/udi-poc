@@ -31,6 +31,6 @@ Go to config.json and environment.ts and change the base url to https://aws.digi
 3.  Now do a ng serve and you would not face the issue
 
 >	If you still face the issue enable CORS plugin in the browser level and that should let you send and receive different origin requests. You could use the following plugins for Chrome and Firefox : \
-Chrome : https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en\
+Chrome : https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?hl=en \
 Firefox : https://addons.mozilla.org/en-US/firefox/addon/cors-everywhere/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search
  
