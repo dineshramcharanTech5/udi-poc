@@ -65,6 +65,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 	docker login --username=udipoc --password=<password>
 
 
+
    4,1 list existing images/container list
 
 	docker images
@@ -72,6 +73,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 	docker ps -a 			#list currently running images in env
 
         docker container list
+	
 	
 
 5. Build the docker image
@@ -93,6 +95,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 	E.g.  docker run -d -p 8080:80 --rm --name nginx udipoc/pre-registration-ui:1.1.3
 
 
+
 8. Checking whether above created image runanble as proof of validation
 
 	E.g.  docker ps -a 							#list currently running images in env
@@ -105,6 +108,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 9. Pushing Docker image to repository you wanted
 
 	E.g.  docker push udipoc/pre-registration-ui:1.1.3
+
 
 
 
@@ -132,6 +136,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 
 	 sudo su - mosipuser
 
+
 2. Change to /home/mosipuser/mosip-infra/deployment/sandbox-v2
 
 	 cd /home/mosipuser/mosip-infra/deployment/sandbox-v2
@@ -145,6 +150,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 4. Stop/remove existing pre-registration ui modules
 
 	helm1 delete prereg
+
 
 5. Set a secret in secrets.yml if not set up
 
@@ -177,7 +183,8 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 
 #### Optional step
 
-#### Below step is done one time an not needed re running
+#### Below step is done one time and not needed re-running
+
 
 1. If you want to create the docker secrets after the cluster is created please run the below command from sandboxv2 directory in Console:
 
@@ -190,19 +197,23 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 	an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.dmz.kube_config}}"       
 
 
+
 2. Pull the images from Docker Hub after login successfully
 
 	docker pull udipoc/pre-registration-ui:1.1.3
 
 
-3 . Open tmux terminal session and execute prereg module related Ansible script to load modules
+
+3. Open tmux terminal session and execute prereg module related Ansible script to load modules
 
 	tmux
 	an playbooks/prereg.yml
 
+
 4. Check images
 
 	kc1 get pods | grep prereg
+
 
 
 Note : This guide subject to revision based on updates from the MOSIP Team
