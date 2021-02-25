@@ -5,7 +5,7 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 
 #### Instructions :
 
-1. Make a directory and switch to it prior to build angular based Pre-Registration UI module
+1. Make a directory and switch to it prior to building angular based Pre-Registration UI module
 
 	cd /home/icta-mosip/
 
@@ -43,11 +43,10 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 
 3. Update Docker file as to run as nginx instance
 
-
+	
 	FROM nginx
 	COPY default.conf /etc/nginx/conf.d/
 	COPY dist/pre-registration-ui /usr/share/nginx/html
-
 
 
 #### Note : Update .dockerignore and Dockerfile accordingly
