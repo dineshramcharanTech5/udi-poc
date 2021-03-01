@@ -5,4 +5,4 @@
 -  https://github.com/ICTASL/registration
 
 
-Note : Curretly refers 1.1.3 for ICTSL/UDI POC
+Note : Currently refers version 1.1.3 for ICTSL/UDI POC
