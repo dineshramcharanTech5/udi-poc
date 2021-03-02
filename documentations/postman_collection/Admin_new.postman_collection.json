@@ -1,0 +1,4593 @@
+{
+	"info": {
+		"_postman_id": "e10f526c-d8ef-4f43-8dfb-d9c5c8101a19",
+		"name": "Admin_new",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "ApplicantValidDocument",
+			"item": [
+				{
+					"name": "Get applicanttype/{applicantId}/languages",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/applicanttype/DOC001/languages?languages=ara",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"applicanttype",
+								"DOC001",
+								"languages"
+							],
+							"query": [
+								{
+									"key": "languages",
+									"value": "ara"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Create Application",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"\\\"errors\\\":null\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"001\",\r\n    \"description\": \"Test application\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"name\": \"TestA\"\r\n  },\r\n  \"requesttime\": \"2018-04-21T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/applicationtypes",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"applicationtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " GetAllApplication ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"true\");",
+									"});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/applicationtypes",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"applicationtypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " GetApplicationByCodeAndLanguageCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Test application\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/applicationtypes/016/eng",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"applicationtypes",
+								"016",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAllApplicationByLanguageCode",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"eng\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/applicationtypes/eng",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"applicationtypes",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BiometricAttribute",
+			"item": [
+				{
+					"name": "Auth using username and pasword ",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Username and password combination had been validated successfully\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"request\": {\n        \"password\": \"Techno@123\",\n        \"appId\": \"registrationclient\",\n        \"userName\": \"110118\"\n    },\n    \"metadata\": \"\",\n    \"requesttime\": \"2020-03-31T06:10:58.695Z\",\n    \"id\": \"mosip.authentication.useridPwd\",\n    \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/authmanager/authenticate/useridPwd",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"authmanager",
+								"authenticate",
+								"useridPwd"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Biometric Attributes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body is correct\", function () {",
+									"    pm.response.to.have.body(\"\\\"code\\\": \\\"TS\\\"\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"biometricTypeCode\": \"FNR\",\r\n    \"code\": \"TS\",\r\n    \"description\": \"Test Attribute\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"name\": \"Test bioAttribute\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/biometricattributes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"biometricattributes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getbiometricattributesbyauthtype/{langcode}/{biometrictypecode}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Thumbs\");",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Right Slab\");",
+									"});",
+									"pm.test(\"Body matches string\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"Left Slab\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/getbiometricattributesbyauthtype/eng/FNR",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"getbiometricattributesbyauthtype",
+								"eng",
+								"FNR"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "BiometricType",
+			"item": [
+				{
+					"name": "Get all biometrictypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/biometrictypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"biometrictypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create biometrictypes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"TST\",\r\n    \"description\": \"TestCode\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"name\": \"TestBiotype\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/biometrictypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"biometrictypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Get BiometricTypeByCodeAndLangCode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/biometrictypes/PHT/eng",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"biometrictypes",
+								"PHT",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get biometrictypes By Langcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/biometrictypes/fra",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"biometrictypes",
+								"fra"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Blacklisted",
+			"item": [
+				{
+					"name": "Create blacklistedwords",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"description\": \"Blacklisted Word\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n    \"word\": \"Boolish\"\n  },\n  \"requesttime\": \"2020-05-10T06:12:52.994Z\",\n  \"version\": \"string\"\n}\n\n ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update blacklistedwords",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"description\": \"Blacklisted Word\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n     \"oldWord\": \"boolish\",\n    \"word\": \"Koolish\"\n  },\n  \"requesttime\": \"2020-05-28T11:28:38.758Z\",\n  \"version\": \"string\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all blacklistedwords by langcode",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/eng",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"eng"
+							]
+						},
+						"description": "Gives only Active : True words"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all blacklistedwords with  additional metadata",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/all?orderBy=desc&pageNumber=0&sortBy=word",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"all"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "desc"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10",
+									"disabled": true
+								},
+								{
+									"key": "sortBy",
+									"value": "word"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the blacklisted word details except word",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"description\": \"BlackListed Word Update.\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"word\": \"Koolish\"\r\n  },\r\n  \"requesttime\": \"2020-05-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/details",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Blacklisted Word",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/Foolishs",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"Foolishs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Black listed word validation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"blacklistedwords\": [\r\n      \"shit\"\r\n    ]\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/words",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"words"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get  blackListedWordsFilterValues",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"word\",\r\n        \"text\": \"word\",\r\n        \"type\": \"all\"\r\n      }\r\n    ],\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/filtervalues",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"filtervalues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Blacklistedwords/search",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"damn\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"word\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"word\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/blacklistedwords/search",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"blacklistedwords",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Machine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"id\":\"10394\",\n    \"ipAddress\": \"192.168.0.150\",\n    \"isActive\": true,\n    \"langCode\": \"ara\",\n    \"macAddress\": \"8C-16-45-5A-5D-0T\",\n    \"machineSpecId\": \"1001\",\n    \"name\": \"test mach\",\n     \"publicKey\": \"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhJTkLv4pKiWpK4hrVqoXh2WjH2oa5Kk5vREif2vnzTH4MUtA/uUVXXfIwGabv+8bCui06OPJqGxUkCAH4sM0950UsWc5RK9beA71lwXbKi0G1wvIiygqPlecjRikYS4TRpGra/QMIbOTUQoR8D171jIqF2yzZIW2TyZE7/qnvYevPxYDtMldM3cld3EQ9ySfujFInmtZ9uXGSexxr0p2/ChidMRGna6sy4DnQWDQjTNPifb7BK1S2yKZ61FP0/pjbMaHMn9k0NQQHspDe1vKzQaeAwmN9R5r1ayv3s7twR/sQsvwzcznQ27WAhwGovOstHTN/PiUsxY6ii65el5gawIDAQAB\",\n    \"serialNum\": \"NM5328114630\",\n    \"validityDateTime\": \"2018-12-10T06:12:52.994Z\",\n    \"zoneCode\": \"KTA\"\n  },\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n  \"version\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/machines",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Device",
+			"item": [
+				{
+					"name": "Device Master",
+					"item": [
+						{
+							"name": "Create Device",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceSpecId\": \"736\",\r\n    \"id\": \" \",\r\n    \"ipAddress\": \"127.0.0.0\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"macAddress\": \"54-BF-64-4C-91-6B\",\r\n    \"name\": \"Test Device One for mapping\",\r\n    \"serialNum\": \"2222222\",\r\n    \"validityDateTime\": \"2020-12-06T09:41:35.082Z\",\r\n    \"zoneCode\": \"KTA\"\r\n  },\r\n  \"requesttime\": \"2020-04-06T09:41:35.082Z\",\r\n  \"version\": \"1.0\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata/devices",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Device",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceSpecId\": \"736\",\r\n    \"id\": \"5156c07c-6699-487c-a1bb-dd6dc25300ce\",\r\n    \"ipAddress\": \"127.0.0.0\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"ara\",\r\n    \"macAddress\": \"54-BF-64-4C-91-6B\",\r\n    \"name\": \"Test Device One Updated\",\r\n    \"serialNum\": \"2222222\",\r\n    \"validityDateTime\": \"2020-12-06T09:41:35.082Z\",\r\n    \"zoneCode\": \"RBT\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}}/v1/masterdata/devices",
+									"host": [
+										"{{url}}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Device",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devices/6b2721ae-4a1c-477a-8e73-8947c54afd33",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices",
+										"6b2721ae-4a1c-477a-8e73-8947c54afd33"
+									]
+								},
+								"description": "It will make device is_active \"True or False\" but doesnot delete from DB as that is done by decomission api"
+							},
+							"response": []
+						},
+						{
+							"name": "Get Device By Langcode",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devices/eng",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get device with Device Type and langcode",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devices/eng/CMR",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices",
+										"eng",
+										"CMR"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Return Filter dropdown values of filter Field for Device",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"langCode\",\r\n        \"text\": \"eng\",\r\n        \"type\": \"all\"\r\n      }\r\n  \r\n      ],\r\n    \r\n    \"languageCode\": \"eng\"\r\n   \r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devicetypes/filtervalues",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes",
+										"filtervalues"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all Devices which are mapped to given Registration Center Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devices/mappeddevices/10001?direction=DESC&orderBy=name&pageNumber=0&pageSize=10",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices",
+										"mappeddevices",
+										"10001"
+									],
+									"query": [
+										{
+											"key": "direction",
+											"value": "DESC"
+										},
+										{
+											"key": "orderBy",
+											"value": "name"
+										},
+										{
+											"key": "pageNumber",
+											"value": "0"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Devices search with value passed",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"Dummy\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"name\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"name\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 1\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/v1/masterdata/devices/search",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devices",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Device History",
+					"item": [
+						{
+							"name": "Get device history",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/deviceshistories/3000508/eng/2020-12-06T09%3A41%3A35.082Z",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"deviceshistories",
+										"3000508",
+										"eng",
+										"2020-12-06T09%3A41%3A35.082Z"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Device Management",
+					"item": [
+						{
+							"name": "Device Provider",
+							"item": [
+								{
+									"name": "Create deviceprovider",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"io.mosip.masterdata.deviceprovider.create\",\n  \"metadata\": {},\n  \"request\": {\n    \"address\": \"Address of Test Vendor\",\n    \"certificateAlias\": \"Test\",\n    \"contactNumber\": \"9663175928\",\n    \"email\": \"test@mosip.io\",\n    \"isActive\": true,\n     \"vendorName\": \"Test Vendor09042020\"\n  },\n  \"requesttime\": \"2020-02-06T09:13:59.522Z\",\n  \"version\": \"1.0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/deviceprovider",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"deviceprovider"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update deviceprovider",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"io.mosip.masterdata.deviceprovider.update\",\n  \"metadata\": {},\n  \"request\": {\n    \"address\": \"abcdwerewfew\",\n    \"certificateAlias\": \"Test\",\n    \"contactNumber\": \"9000000000\",\n    \"email\": \"test@mosip.io\",\n    \"id\": \"c123dd49-775f-48db-a39c-da29d4205f37\",\n    \"isActive\": true,\n    \"vendorName\": \"Test Vendor09042020 Update\"\n  },\n  \"requesttime\": \"2020-02-10T09:13:59.522Z\",\n  \"version\": \"1.0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/deviceprovider",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"deviceprovider"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DeviceProvider Management",
+							"item": [
+								{
+									"name": " ValidateDeviceProvider",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceCode\": \"3000013\",\r\n    \"deviceServiceVersion\": \"fbheafg\",\r\n    \"digitalId\": {\r\n      \"dateTime\": \"string\",\r\n      \"dp\": \"SYNCBYTE\",\r\n      \"dpId\": \"SYNCBYTE.TCI322\",\r\n      \"make\": \"Microsoft\",\r\n      \"model\": \"ca3e7ab9-b4c3-4ae6-8251-579ef933890f\",\r\n      \"serialNo\": \"1915LZ50WLV9\",\r\n      \"subType\": \"Full face\",\r\n      \"type\": \"Face\"\r\n    }\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+										},
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/deviceprovidermanagement/validate",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"deviceprovidermanagement",
+												"validate"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "validateDeviceProviderHistory",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"string\",\r\n  \"request\": {\r\n    \"deviceCode\": \"3000013\",\r\n    \"deviceServiceVersion\": \"inActiveMDSsVersion\",\r\n    \"digitalId\": {\r\n      \"dateTime\": \"string\",\r\n      \"dp\": \"SYNCBYTE\",\r\n      \"dpId\": \"SYNCBYTE.TCI322\",\r\n      \"make\": \"Microsoft\",\r\n      \"model\": \"ca3e7ab9-b4c3-4ae6-8251-579ef933890f\",\r\n      \"serialNo\": \"1915LZ50WLV9\",\r\n      \"subType\": \"Full face\",\r\n      \"type\": \"Face\"\r\n    },\r\n    \"timeStamp\": \"2019-11-22T10:42:17.486Z\"\r\n  },\r\n  \"requesttime\": \"2019-11-22T16:34:22.890Z\",\r\n  \"version\": \"1.0\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/deviceprovidermanagement/validate/history",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"deviceprovidermanagement",
+												"validate",
+												"history"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update Machine",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"id\": \"10000\",\r\n    \"ipAddress\": \"192.168.0.150\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"ara\",\r\n    \"macAddress\": \"8C-16-45-5A-5D-0T\",\r\n    \"machineSpecId\": \"1001\",\r\n    \"name\": \"test mach\",\r\n    \"serialNum\": \"NM5328114630\",\r\n    \"validityDateTime\": \"2018-12-10T06:12:52.994Z\",\r\n    \"zoneCode\": \"RBT\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/machines",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"machines"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "DeviceRegister-Decomission",
+							"item": [
+								{
+									"name": "Update Device statuscode using deviceCode=Test1234&statusCode=Revoked",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/registereddevices/update/status?deviceCode=&statusCode=Revoked",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"registereddevices",
+												"update",
+												"status"
+											],
+											"query": [
+												{
+													"key": "deviceCode",
+													"value": ""
+												},
+												{
+													"key": "statusCode",
+													"value": "Revoked"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Deregister the device Device code",
+									"request": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "https://int.mosip.io/v1/masterdata/device/deregister/{device code}",
+											"protocol": "https",
+											"host": [
+												"int",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"device",
+												"deregister",
+												"{device code}"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "MOSIP DEVICE SERVICE [MDS]",
+							"item": [
+								{
+									"name": "Create Foundationaltrustprovider",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"io.mosip.masterdata.mds.create\",\n  \"metadata\": {},\n  \"request\": {\n    \"deviceProviderId\": \"294d987e-8112-419d-8647-5fe1158de1f4\",\n    \"isActive\": true,\n    \"make\": \"MC01A\",\n    \"model\": \"MODEL\",\n    \"regDeviceSubCode\": \"Single\",\n    \"regDeviceTypeCode\": \"Finger\",\n    \"swBinaryHash\": \"Test Hash\",\n    \"swCreateDateTime\": \"2020-02-10T06:12:52.994Z\",\n    \"swExpiryDateTime\": \"2021-02-10T06:12:52.994Z\",\n    \"swVersion\": \"TestSwVersion1\"\n  },\n  \"requesttime\": \"2020-02-10T06:12:52.994Z\",\n  \"version\": \"1.0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://qa.mosip.io/v1/masterdata/mosipdeviceservice",
+											"protocol": "https",
+											"host": [
+												"qa",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"mosipdeviceservice"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Update MDS",
+									"request": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"io.mosip.masterdata.mds.update\",\n  \"metadata\": {},\n  \"request\": {\n  \t\"isActive\": true,\n   \"deviceProviderId\": \"294d987e-8112-419d-8647-5fe1158de1f4\",\n    \"id\": \"b56b6503-4f13-4af2-ae03-0f625778a573\",\n   \"make\": \"MC01A\",\n    \"model\": \"MODEL\",\n    \"regDeviceSubCode\": \"Single\",\n    \"regDeviceTypeCode\": \"Finger\",\n    \"swBinaryHash\": \"Test Hash\",\n    \"swCreateDateTime\": \"2020-02-10T06:12:52.994Z\",\n    \"swExpiryDateTime\": \"2022-02-10T06:12:52.994Z\",\n    \"swVersion\": \"TestSwVersion1\"\n  },\n  \"requesttime\": \"2020-02-10T06:12:52.994Z\",\n  \"version\": \"1.0\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://qa.mosip.io/v1/masterdata/mosipdeviceservice",
+											"protocol": "https",
+											"host": [
+												"qa",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"mosipdeviceservice"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Device",
+							"item": [
+								{
+									"name": "Create Registereddevices",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"io.mosip.masterdata.device.create\",\n  \"metadata\": {},\n  \"request\": {\n    \"deviceData\": \"eyJkZXZpY2VJZCI6IjcwOTU5ZGQ1LWU0NWYtNDM4YS05ZmY4LTliMjYzOTA4ZTU3MiIsInB1cnBvc2UiOiJBVVRIIiwiZGV2aWNlSW5mbyI6eyJkZXZpY2VTdWJJZCI6IjEiLCJjZXJ0aWZpY2F0aW9uIjoiTDAiLCJkaWdpdGFsSWQiOiJleUp6WlhKcFlXeE9ieUk2SWpFNE1ERXhOakE1T1RJaUxDSmtaWFpwWTJWUWNtOTJhV1JsY2lJNklsTlpUa05DV1ZSRklpd2laR1YyYVdObFVISnZkbWxrWlhKSlpDSTZJbE5aVGtOQ1dWUkZMazFETURGQklpd2liV0ZyWlNJNklrMURNREZCSWl3aWJXOWtaV3dpT2lKVFRVbEVRMHdpTENKa1lYUmxWR2x0WlNJNklqSXdNakF0TURFdE1UTlVNRGM2TWpBNk5ESXVNVGsxV2lJc0luUjVjR1VpT2lKR2FXNW5aWEp3Y21sdWRDSXNJbk4xWWxSNWNHVWlPaUpUYVc1bmJHVWlmUT09IiwiZmlybXdhcmUiOiJmaXJtd2FyZSIsImRldmljZUV4cGlyeSI6IjIwMjAtMDEtMTNUMTI6NTA6NDIuMTk2WiIsInRpbWVTdGFtcCI6IjIwMjAtMDEtMTNUMTI6NTA6NDIuMjA4WiJ9LCJmb3VuZGF0aW9uYWxUcnVzdFByb3ZpZGVySWQiOiIifQ==\"\n  },\n  \"requesttime\": \"2020-04-10T06:28:06.752Z\",\n  \"version\": \"v1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://qa.mosip.io/v1/masterdata/registereddevices",
+											"protocol": "https",
+											"host": [
+												"qa",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"registereddevices"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Return Filter dropdown values of filter Field",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"code\",\r\n        \"text\": \"TSTT\",\r\n        \"type\": \"unique\"\r\n      }\r\n  \r\n      ],\r\n    \r\n    \"languageCode\": \"eng\"\r\n   \r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "https://qa.mosip.io/v1/masterdata/devicetypes/filtervalues",
+											"protocol": "https",
+											"host": [
+												"qa",
+												"mosip",
+												"io"
+											],
+											"path": [
+												"v1",
+												"masterdata",
+												"devicetypes",
+												"filtervalues"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Device Specification",
+					"item": [
+						{
+							"name": "Create devicespecifications",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"brand\": \"Technoforte\",\n    \"description\": \"Test DeviceSpec\",\n    \"deviceTypeCode\": \"CMR\",\n    \"id\": \"740\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n    \"minDriverversion\": \"1.0\",\n    \"model\": \"2020\",\n    \"name\": \"Cam\"\n  },\n  \"requesttime\": \"2020-04-06T06:12:52.994Z\",\n  \"version\": \"1.0\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicespecifications",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicespecifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update devicespecifications",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"string\",\n  \"version\": \"1.0\",\n  \"metadata\": {},\n  \"requesttime\": \"2020-04-08T06:17:33.268Z\",\n  \"request\": {\n    \"brand\": \"Technoforte Update\",\n    \"description\": \"Test DeviceSpec update\",\n    \"id\": \"740\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n    \"deviceTypeCode\": \"CMR\",\n    \"minDriverversion\": \"1.0\",\n    \"model\": \"2020\",\n    \"name\": \"Cam\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicespecifications",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicespecifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete  devicespecifications/{id}",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata//devicespecifications/740",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"",
+										"devicespecifications",
+										"740"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get devicespecifications/{langcode}/{devicetypecode}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata//devicespecifications/eng/IRS",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"",
+										"devicespecifications",
+										"eng",
+										"IRS"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get devicespecifications/{langcode}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata//devicespecifications/eng",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"",
+										"devicespecifications",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all the device specifications with additional metadata",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicespecifications/all?orderBy=desc&pageNumber=1&pageSize=10&sortBy=createdDateTime",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicespecifications",
+										"all"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "desc"
+										},
+										{
+											"key": "pageNumber",
+											"value": "1"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": "createdDateTime"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get devicespecifications/filtervalues ",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"isActive\",\r\n        \"text\": \"true\",\r\n        \"type\": \"all\"\r\n      }\r\n    ],\r\n    \"languageCode\": \"eng\",\r\n    \"optionalFilters\": [\r\n      {\r\n        \"value\": \"4\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"id\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ]\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicespecifications/filtervalues",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicespecifications",
+										"filtervalues"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": " DeviceSpecificationSearch",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"Fin\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"name\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"id\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicespecifications/search",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicespecifications",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Device Types Master",
+					"item": [
+						{
+							"name": "Create Devicetypes",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"Device1\",\r\n    \"description\": \"test 1.0.10\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"name\": \"TEST\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/devicetypes",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update devicetypes",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"TST\",\r\n    \"description\": \"test 1.0.8 Update\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"name\": \"TEST Update\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicetypes",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get all  devicetypes/all?orderBy=desc&pageNumber=0&pageSize=10&sortBy=createdDateTime",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/devicetypes/all?orderBy=desc&pageNumber=0&pageSize=10&sortBy=createdDateTime",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes",
+										"all"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "desc"
+										},
+										{
+											"key": "pageNumber",
+											"value": "0"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": "createdDateTime"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Return the devicetypes filtervalues under filter field",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"isActive\",\r\n        \"text\": \"true\",\r\n        \"type\": \"all\"\r\n      }\r\n    ],\r\n    \"languageCode\": \"eng\"\r\n   \r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/devicetypes/filtervalues",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes",
+										"filtervalues"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Search Device Type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"Test\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"name\",\r\n        \"type\": \"equals\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"code\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+								},
+								"url": {
+									"raw": "https://int.mosip.io/v1/masterdata/devicetypes/search",
+									"protocol": "https",
+									"host": [
+										"int",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"devicetypes",
+										"search"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Document Category",
+			"item": [
+				{
+					"name": "Get all documentcategories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/documentcategories",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documentcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create documentcategories",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"DocTestfalse\",\r\n    \"description\": \"Doc false\",\r\n    \"isActive\": false,\r\n    \"langCode\": \"ara\",\r\n    \"name\": \"Docfalse\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/documentcategories",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documentcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update documentcategories",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n   \"code\": \"DocTestfalse\",\r\n    \"description\": \"Doc false update\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"ara\",\r\n    \"name\": \"Docfalse\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/documentcategories",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documentcategories"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete documentcategories with code",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/documentcategories/DocTest01",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documentcategories",
+								"DocTest01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Doc type",
+			"item": [
+				{
+					"name": "Update documenttypes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"RNC\",\r\n    \"description\": \"Rental Agreement of address\",\r\n    \"isActive\": false,\r\n    \"langCode\": \"fra\",\r\n    \"name\": \"Rental contract\"\r\n  },\r\n  \"requesttime\": \"2020-04-28T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/documenttypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documenttypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Documenttypes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/documenttypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"documenttypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Working Non Working Days",
+			"item": [
+				{
+					"name": "Get Exceptional Holidays as per center and lang",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/exceptionalholidays/10002/eng",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"exceptionalholidays",
+								"10002",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get weekday as per center and lang",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qa.mosip.io/v1/masterdata/weekdays/10001/ara",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"weekdays",
+								"10001",
+								"ara"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get WorkingDay as per center and lang",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qa.mosip.io/v1/masterdata/workingdays/10001/eng",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"workingdays",
+								"10001",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Foundational Trust Providers",
+			"item": [
+				{
+					"name": "Create Foundationaltrustprovider",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"io.mosip.masterdata.foundationaltrustprovider.create\",\n  \"metadata\": {},\n  \"request\": {\n    \"name\": \"Test Vendor\",\n    \"address\": \"Address of FTP 1\",\n    \"email\": \"FTP1@mosip.io\",\n    \"contactNo\": \"9876543210\",\n    \"certAlias\": \"Test\",\n    \"isActive\": true\n  },\n  \"requesttime\": \"2020-02-06T09:13:59.522Z\",\n  \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/foundationaltrustprovider",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"foundationaltrustprovider"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Foundationaltrustprovider",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"io.mosip.masterdata.foundationaltrustprovider.update\",\n  \"metadata\": {},\n  \"request\": {\n    \"active\": true,\n    \"id\": \"18e20dcb-56c9-43a2-9dab-28e0abcd3bc6\",\n    \"name\": \"Test Vendor Update\",\n    \"address\": \"Address of FTP 1\",\n    \"email\": \"FTP1test@mosip.io\",\n    \"contactNo\": \"9876543210\",\n    \"certAlias\": \"Change\",\n    \"isActive\": true\n  },\n  \"requesttime\": \"2020-02-10T09:13:59.522Z\",\n  \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/foundationaltrustprovider",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"foundationaltrustprovider"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gender",
+			"item": [
+				{
+					"name": "Get gendertype",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/gendertypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Gender",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"version\": \"1.0\",\r\n  \"metadata\": {},\r\n  \"requesttime\": \"2020-03-24T09:21:54.860Z\",\r\n  \"request\": {\r\n              \"code\": \"TST\",\r\n              \"genderName\": \"TestName\",\r\n              \"isActive\": true,\r\n             \"langCode\": \"ara\"\r\n             }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Gender",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"version\": \"1.0\",\r\n  \"metadata\": {},\r\n  \"requesttime\": \"2020-03-24T09:21:54.860Z\",\r\n  \"request\": {\r\n               \"code\": \"TST\",\r\n              \"genderName\": \"TestName Update after deleted\",\r\n              \"isActive\": true,\r\n             \"langCode\": \"eng\"\r\n             }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Gender",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"version\": \"1.0\",\r\n  \"metadata\": {},\r\n  \"requesttime\": \"2020-03-24T09:21:54.860Z\",\r\n  \"request\": {\r\n               \"code\": \"TST\",\r\n              \"genderName\": \"TestName Update\",\r\n              \"isActive\": true,\r\n             \"langCode\": \"eng\"\r\n             }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes/TST",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"TST"
+							]
+						},
+						"description": "Takes Gender Code in URL"
+					},
+					"response": []
+				},
+				{
+					"name": "Get specific gender with langcode [eng,fra,ara]",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes/eng",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all gendertypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes/all",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "gendertypes filtervalues",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"string\",\n    \"metadata\": {},\n    \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n    \"version\": \"1.0\",\n    \"request\": {\n        \"filters\" : [\n            {\n                \"columnName\": \"code\",\n                \"type\": \"all\",\n                \"text\": \"TST\" \n            }\n        ],\n        \"languageCode\": \"eng\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes/filtervalues",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"filtervalues"
+							]
+						},
+						"description": "Returns the filter values which are required in the dropdown entries of the filter screen."
+					},
+					"response": []
+				},
+				{
+					"name": "Search GenderType",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"TST\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"code\",\r\n        \"type\": \"equals\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"code\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"ara\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/gendertypes/search",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate the  gendertypes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/gendertypes/validate/Test03",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"gendertypes",
+								"validate",
+								"Test03"
+							]
+						},
+						"description": "Use Gendername to see the valid and invalid"
+					},
+					"response": []
+				},
+				{
+					"name": "Get center types with additional metadata",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/registrationcentertypes/all?orderBy=desc&pageNumber=0&pageSize=10&sortBy=createdDateTime",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcentertypes",
+								"all"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "desc"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "createdDateTime"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Holiday",
+			"item": [
+				{
+					"name": "Holiday",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Holiday",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"\",\n  \"metadata\": {},\n  \"request\": {\n    \"holidayDate\": \"2020-06-06\",\n    \"holidayDay\": \"1\",\n    \"holidayDesc\": \"Automation Holiday\",\n    \"holidayMonth\": \"June\",\n    \"holidayName\": \"Automation Day\",\n    \"holidayYear\": \"2020\",\n    \"id\":\"2000075\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n    \"locationCode\": \"KTA\"\n  },\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n  \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update holiday",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"id\": 0,\r\n   \"locationCode\": \"KTA\",\r\n   \"holidayDate\": \"2020-07-11\",\r\n    \"holidayName\": \"Labour Day\",\r\n     \"holidayDesc\": \"Automation labour Holiday\",\r\n   \"langCode\": \"eng\",\r\n    \"isActive\": true,\r\n    \"newHolidayName\": \"Automation Day\",\r\n    \"newHolidayDate\": \"2020-06-26\",\r\n    \"newHolidayDesc\": \"Update Automation Holiday\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete holidays",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"holidayDate\": \"2020-04-03\",\n    \"holidayName\": \"Local Holiday 2\",\n    \"locationCode\": \"KTA\"\n  },\n  \"requesttime\": \"2020-03-24T12:13:48.720Z\",\n  \"version\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://qa.mosip.io/v1/masterdata/holidays",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Holiday by HolidayID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays/2000075",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays",
+								"2000075"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Holiday by ID and Langcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays/2000002/eng",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays",
+								"2000002",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Holiday All with sorting",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays/all?orderBy\n=desc&sortBy",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays",
+								"all"
+							],
+							"query": [
+								{
+									"key": "orderBy\n",
+									"value": "desc"
+								},
+								{
+									"key": "sortBy",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Holiday Filter value",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"holidayName\",\r\n        \"type\": \"all\",\r\n        \"text\": \"a\"\r\n      }\r\n    ],\r\n    \"languageCode\": \"eng\",\r\n    \"optionalFilters\": [\r\n      {\r\n        \"value\": \"a\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"holidayName\",\r\n        \"type\": \"all\"\r\n      }\r\n    ]\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays/filtervalues",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays",
+								"filtervalues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Holiday",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"a\",\r\n        \"fromValue\": \"string\",\r\n        \"toValue\": \"string\",\r\n        \"columnName\": \"name\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"holidayName\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/holidays/search",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"holidays",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "IDType",
+			"item": [
+				{
+					"name": "Get idtypes with Langcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/idtypes/eng",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"idtypes",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create idtypes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"code\": \"TST\",\r\n    \"descr\": \"Test IDTYPE\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"ara\",\r\n    \"name\": \"TestIDTYP\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/idtypes",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"idtypes"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Individual Type",
+			"item": []
+		},
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "authfactors",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/security/authfactors/{userId}",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"security",
+								"authfactors",
+								"{userId}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aauthenticate the username and password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.authentication.login\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"M392380\",\r\n\t\t\"password\": \"fdkj943lkj32k32ew$8Kf\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/login",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.authentication.sendotp\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"userid\": \"M392380\",\r\n\t\t\"otpchannel\": [\"MOBILE\", \"EMAIL\"],\r\n\t\t\"templateParams\": {\r\n\t\t\t\"expiryTime\":\"20 minutes\",\r\n\t\t\t\"purpose\":\"Changing password\",\r\n\t\t}\r\n\t\t\"useridtype\": \"USERID\",\r\n\t\t\"appid\": \"REGISTRATIONCLIENT\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/sendotp",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"sendotp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Authenticates the use ID and the OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.authentication.useridOTP\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"userid\": \"M392380\",\r\n\t\t\"otp\": \"6473\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/useridOTP",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"useridOTP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://qa.mosip.io/v1/authmanager/logout/user",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"authmanager",
+								"logout",
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account Management",
+			"item": [
+				{
+					"name": "Unblockuser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/unblockuser",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"unblockuser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.accountmanagement.changepassword\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"M392380\",\r\n\t\t\"oldpassword\": \"6^S98sG#\",\r\n\t\t\"newpassword\": \"hfsfs32#\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/changepassword",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"changepassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reset password",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.accountmanagement.resetpassword\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"M392380\",\r\n\t\t\"newpassword\": \"hfsfs32#\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/resetpassword",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"resetpassword"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Username from Mobile No.",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/actmgmt/username/{mobilenumber}",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"actmgmt",
+								"username",
+								"{mobilenumber}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "Register a new user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.usermanagement.register\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"110077\",\r\n\t\t\"firstName\": \"Piyush\",\r\n\t\t\"lastName\": \"Singh\",\r\n\t\t\"contactNo\": \"8277417831\",\r\n\t\t\"emailID\": \"piyush.singh@technoforte.co.in\",\r\n\t\t\"dateOfBirth\": \"1989-09-12\",\r\n\t\t\"gender\": \"male\",\r\n\t\t\"role\": \"ADMIN\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/usermgmt/register",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"usermgmt",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check for the rid with the user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.usermanagement.register\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"M392380\",\r\n\t\t\"rid\": \"41355315155\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/usermgmt/rid",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"usermgmt",
+								"rid"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add a new password to the user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"id\": \"mosip.admin.usermanagement.password\",\r\n\t\"version\":\"1.0\",\t\r\n\t\"requesttime\":\"2007-12-03T10:15:30Z\",\r\n\t\"request\": {\r\n\t\t\"username\": \"M392380\",\r\n\t\t\"rid\": \"41355315155\",\r\n\t\t\"password\": \"ksafuff\",\r\n\t\t\"appid\": \"ADMIN\"\r\n\t}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/usermgmt/password",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"usermgmt",
+								"password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UIN Services",
+			"item": [
+				{
+					"name": "Can get the status of UIN",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/uinmgmt/status/{uin}",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"uinmgmt",
+								"status",
+								"{uin}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the packet status of RID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/admin/packetstatusupdate?rid=10003100240000120200420105200\n",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"packetstatusupdate"
+							],
+							"query": [
+								{
+									"key": "rid",
+									"value": "10003100240000120200420105200\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Master Card",
+			"item": [
+				{
+					"name": "Master Data Card List",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/admin/mastercards/{languagecode}",
+							"protocol": "https",
+							"host": [
+								"nginxsprod",
+								"eastus",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"admin",
+								"mastercards",
+								"{languagecode}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Common API",
+			"item": [
+				{
+					"name": "Title",
+					"item": [
+						{
+							"name": "Create Title as [Mrs, Mr]",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"string\",\n  \"version\": \"1.0\",\n  \"metadata\": {},\n  \"requesttime\": \"2020-03-24T05:11:30.770Z\",\n  \"request\":  {\n                \"code\": \"TEST\",\n                \"titleName\": \"Master\",\n                \"titleDescription\": \"MASTER \",\n                \"isActive\": true,\n                \"langCode\": \"ara\"\n            }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get title",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "sortBy",
+										"value": "name",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title/all?orderBy=asc&pageNumber=0&pageSize=10&sortBy=code",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title",
+										"all"
+									],
+									"query": [
+										{
+											"key": "orderBy",
+											"value": "asc"
+										},
+										{
+											"key": "pageNumber",
+											"value": "0"
+										},
+										{
+											"key": "pageSize",
+											"value": "10"
+										},
+										{
+											"key": "sortBy",
+											"value": "code"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get title with Langcode[fra,eng,ara]",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title/eng",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Title",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"string\",\n  \"version\": \"1.0\",\n  \"metadata\": {},\n  \"requesttime\": \"2020-03-24T05:11:30.770Z\",\n  \"request\":  {\n                \"code\": \"TEST\",\n                \"titleName\": \"Master\",\n                \"titleDescription\": \"MASTER \",\n                \"isActive\": true,\n                \"langCode\": \"eng\"\n            }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Title",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title/TEST",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title",
+										"TEST"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get ALL Title",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title/all",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Filter Title",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"string\",\n    \"metadata\": {},\n    \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n    \"version\": \"1.0\",\n    \"request\": {\n        \"filters\" :[\n            {\n                \"columnName\": \"isActive\",\n                 \"type\": \"unique\",\n                 \"text\": \"true\"\n           \n       \n            }\n        ],\n         \"languageCode\": \"eng\"\n    }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "https://qa.mosip.io/v1/masterdata/title/filtervalues",
+									"protocol": "https",
+									"host": [
+										"qa",
+										"mosip",
+										"io"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"title",
+										"filtervalues"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Location",
+					"item": [
+						{
+							"name": "Get all locations",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata/locations/all",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"locations",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get  locations with langcode",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata/locations/eng",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"locations",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get  locations with locationcode and langcode  ",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata/locations/14000/eng",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"locations",
+										"14000",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get immediate Children of parent code",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata/locations/immediatechildren/MOR/eng",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"locations",
+										"immediatechildren",
+										"MOR",
+										"eng"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": " List of Locations based on the location hierarchy name",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata//locations/locationhierarchy/Province",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"",
+										"locations",
+										"locationhierarchy",
+										"Province"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Validate location",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{URL}}/v1/masterdata//locations/validate/Kenitra",
+									"host": [
+										"{{URL}}"
+									],
+									"path": [
+										"v1",
+										"masterdata",
+										"",
+										"locations",
+										"validate",
+										"Kenitra"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Machine",
+			"item": [
+				{
+					"name": "Get AllMachine",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/machines",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Machine with respective center",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/machines/mappedmachines/10000",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines",
+								"mappedmachines",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Machine with Langcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qa.mosip.io/v1/masterdata/machines/eng",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Machine with Langcode and machine id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/machines/560099/eng",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines",
+								"560099",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Machine",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"id\":\"10000\",\n    \"ipAddress\": \"192.168.0.150\",\n    \"isActive\": true,\n    \"langCode\": \"eng\",\n    \"macAddress\": \"8C-16-45-5A-5D-0T\",\n    \"machineSpecId\": \"1001\",\n    \"name\": \"test mach\",\n     \"publicKey\": \"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhJTkLv4pKiWpK4hrVqoXh2WjH2oa5Kk5vREif2vnzTH4MUtA/uUVXXfIwGabv+8bCui06OPJqGxUkCAH4sM0950UsWc5RK9beA71lwXbKi0G1wvIiygqPlecjRikYS4TRpGra/QMIbOTUQoR8D171jIqF2yzZIW2TyZE7/qnvYevPxYDtMldM3cld3EQ9ySfujFInmtZ9uXGSexxr0p2/ChidMRGna6sy4DnQWDQjTNPifb7BK1S2yKZ61FP0/pjbMaHMn9k0NQQHspDe1vKzQaeAwmN9R5r1ayv3s7twR/sQsvwzcznQ27WAhwGovOstHTN/PiUsxY6ii65el5gawIDAQAB\",\n    \"serialNum\": \"NM5328114630\",\n    \"validityDateTime\": \"2020-12-10T06:12:52.994Z\",\n    \"zoneCode\": \"KTA\"\n  },\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n  \"version\": \"string\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/machines",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Map machine with center",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"machineId\": \"10394\",\r\n    \"regCenterId\": \"12557\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://dev.mosip.io/v1/masterdata/registrationcentermachine",
+							"protocol": "https",
+							"host": [
+								"dev",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcentermachine"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Machine",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"id\": \"10394\",\r\n    \"ipAddress\": \"192.168.0.150\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"macAddress\": \"8C-16-45-5A-5D-0T\",\r\n    \"machineSpecId\": \"1001\",\r\n    \"name\": \"Test Machine\",\r\n    \"serialNum\": \"NM5328114630\",\r\n    \"validityDateTime\": \"2020-12-10T06:12:52.994Z\",\r\n    \"zoneCode\": \"NTH\"\r\n  },\r\n  \"requesttime\": \"2020-05-28T10:04:56.158Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/machines",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines"
+							]
+						},
+						"description": "Update"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Machine",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/machines/10000",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"machines",
+								"10000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Center",
+			"item": [
+				{
+					"name": " Creation of Registration center",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"addressLine1\": \"addressLine1\",\n    \"addressLine2\": \"addressLine1\",\n    \"addressLine3\": \"addressLine3\",\n    \"centerEndTime\": \"17:00:00\",\n    \"centerStartTime\": \"09:00:00\",\n    \"centerTypeCode\": \"REG\",\n    \"contactPerson\": \"Center Person\",\n    \"contactPhone\": \"9606139887\",\n    \"exceptionalHolidayPutPostDto\": [\n      {\n        \"exceptionHolidayDate\": \"2020-06-18\",\n        \"exceptionHolidayName\": \"Holiday Name\",\n        \"exceptionHolidayReson\": \"Holiday Reason\"\n      }\n    ],\n    \"holidayLocationCode\": \"KTA\",\n    \"id\": \"20006\",\n    \"isActive\": true,\n    \"langCode\": \"ara\",\n    \"latitude\": \"2.3434\",\n    \"locationCode\": \"14000\",\n    \"longitude\": \"2.2344\",\n    \"lunchEndTime\": \"13:30:00\",\n    \"lunchStartTime\": \"13:00:00\",\n    \"name\": \"Machine_Device Mapping center \",\n    \"perKioskProcessTime\": \"00:15:00\",\n    \"timeZone\": \"GTM + 01h00) HEURE EUROPEENNE CENTRALE\",\n    \"workingHours\": \"8:00:00\",\n    \"workingNonWorkingDays\": {\n      \"fri\": true,\n      \"mon\": true,\n      \"sat\": false,\n      \"sun\": false,\n      \"thu\": true,\n      \"tue\": true,\n      \"wed\": true\n    },\n    \"zoneCode\": \"KTA\"\n  },\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n  \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/v1/masterdata/registrationcenters",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Registrationcenters",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n   \"addressLine1\": \"avc\",\r\n    \"addressLine2\": \"\",\r\n    \"addressLine3\": \"addressLine3\",\r\n   \"centerEndTime\": \"17:00:00\",\r\n    \"centerStartTime\": \"09:00:00\",\r\n    \"centerTypeCode\": \"REG\",\r\n    \"contactPerson\": \"Test Name\",\r\n  \"contactPhone\": \"9606139887\",\r\n    \"exceptionalHolidayPutPostDto\": [\r\n      {\r\n        \"exceptionHolidayDate\": \"2020-06-21\",\r\n        \"exceptionHolidayName\": \"Holiday Name\",\r\n        \"exceptionHolidayReson\": \"Holiday Reason\"\r\n      }\r\n    ],\r\n    \"holidayLocationCode\": \"KTA\",\r\n    \"id\": \"12555\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"ara\",\r\n    \"latitude\": \"2.3434\",\r\n    \"locationCode\": \"14000\",\r\n    \"longitude\": \"2.2344\",\r\n    \"lunchEndTime\": \"13:30:00\",\r\n    \"lunchStartTime\": \"13:00:00\",\r\n    \"name\": \"Test Center Holiday Test\",\r\n    \"numberOfKiosks\": 5,\r\n    \"perKioskProcessTime\": \"00:15:00\",\r\n    \"timeZone\": \"GTM + 01h00) HEURE EUROPEENNE CENTRALE\",\r\n    \"workingHours\": \"9:00:00\",\r\n    \"workingNonWorkingDays\": {\r\n      \"fri\": true,\r\n      \"mon\": true,\r\n      \"sat\": false,\r\n      \"sun\": false,\r\n      \"thu\": true,\r\n      \"tue\": true,\r\n      \"wed\": true\r\n    }, \"zoneCode\": \"KTA\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"1.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/registrationcenters",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getcoordinatespecificregistrationcenters/Langcode/Latitude/Logitude/ proximitydistance",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/getcoordinatespecificregistrationcenters/ara/-6.516428/34.287879/56",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"getcoordinatespecificregistrationcenters",
+								"ara",
+								"-6.516428",
+								"34.287879",
+								"56"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Getlocspecificregistrationcenters with Langcode and Location code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata//getlocspecificregistrationcenters/eng/14000",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"",
+								"getlocspecificregistrationcenters",
+								"eng",
+								"14000"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetregistrationcenterholidaysFrom Langcode/Centercode/Year",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/getregistrationcenterholidays/tre/12912/20",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"getregistrationcenterholidays",
+								"tre",
+								"12912",
+								"20"
+							]
+						},
+						"description": "This will fetch data from table loc_holiday table , and is not related to exceptional or working non working holiday table.\n\nReturn generic holiday"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all registrationcenters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get center with Centercode and Langcode",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/12558/eng",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"12558",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": " Get registrationcenters/{langcode}/{hierarchylevel}/{name}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/eng/3/Kenitra",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"eng",
+								"3",
+								"Kenitra"
+							]
+						},
+						"description": " getRegistrationCenterByHierarchyLevelAndTextAndlangCode"
+					},
+					"response": []
+				},
+				{
+					"name": "Get  registrationcenters/{langcode}/{hierarchylevel}/{name}&{name}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/eng/3/names?name=Kentria",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"eng",
+								"3",
+								"names"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Kentria"
+								}
+							]
+						},
+						"description": "getRegistrationCenterByHierarchyLevelAndListTextAndlangCode with different name "
+					},
+					"response": []
+				},
+				{
+					"name": "GetAllExistingRegistrationCentersDetails",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/all?orderBy=desc&pageNumber=0&pageSize=20&sortBy=name\n",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"all"
+							],
+							"query": [
+								{
+									"key": "orderBy",
+									"value": "desc"
+								},
+								{
+									"key": "pageNumber",
+									"value": "0"
+								},
+								{
+									"key": "pageSize",
+									"value": "20"
+								},
+								{
+									"key": "sortBy",
+									"value": "name\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get validate registrationcenters/validate/{id}/{langCode}/{timestamp}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata\n/registrationcenters/validate/{id}/{langCode}/{timestamp}\n",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata\n",
+								"registrationcenters",
+								"validate",
+								"{id}",
+								"{langCode}",
+								"{timestamp}\n"
+							]
+						},
+						"description": "validateTimestamp"
+					},
+					"response": []
+				},
+				{
+					"name": "Get registrationcentershistory/33333/eng/2020-11-21T06:50:27.012Z",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://qa.mosip.io/v1/masterdata/registrationcentershistory/33333/eng/2020-11-21T06:50:27.012Z",
+							"protocol": "https",
+							"host": [
+								"qa",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcentershistory",
+								"33333",
+								"eng",
+								"2020-11-21T06:50:27.012Z"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Registrationcenters",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"value\": \"Center\",\r\n        \"fromValue\": \"0\",\r\n        \"toValue\": \"1\",\r\n        \"columnName\": \"name\",\r\n        \"type\": \"contains\"\r\n      }\r\n    ],\r\n    \"sort\": [\r\n      {\r\n        \"sortField\": \"name\",\r\n        \"sortType\": \"asc\"\r\n      }\r\n    ],\r\n    \"pagination\": {\r\n      \"pageStart\": 0,\r\n      \"pageFetch\": 10\r\n    },\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/search\n",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"search\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get filter dropdownvalue for registrationcenters Filter",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"filters\": [\r\n      {\r\n        \"columnName\": \"isActive\",\r\n        \"text\": \"\",\r\n        \"type\": \"all\"\r\n      }\r\n    ],\r\n    \"languageCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata//registrationcenters/filtervalues",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"",
+								"registrationcenters",
+								"filtervalues"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete center  /registrationcenters/{registrationCenterId}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{preProd_url}}/v1/masterdata/registrationcenters/12920",
+							"host": [
+								"{{preProd_url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenters",
+								"12920"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Registration Center Device Mapping ",
+			"item": [
+				{
+					"name": " Map provided registration center and device",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceId\": \"3000023\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"regCenterId\": \"12928\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/v1/masterdata/registrationcenterdevice",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenterdevice"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Unmap device with Center Registrationcenterdevice/unmap/3000023/12928",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/registrationcenterdevice/unmap/3000023/12928",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"registrationcenterdevice",
+								"unmap",
+								"3000023",
+								"12928"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Zone",
+			"item": [
+				{
+					"name": "Get  authorizeZone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/zones/authorize?rid=10002100820000120200422051338",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"zones",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "rid",
+									"value": "10002100820000120200422051338"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetZoneHierarchy with eng",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/zones/hierarchy/eng",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"zones",
+								"hierarchy",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Leaf Zones",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/zones/leafs/eng",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"zones",
+								"leafs",
+								"eng"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get zones/zonename?langCode=eng&userID=110118",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/v1/masterdata/zones/zonename?langCode=eng&userID=110118",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"zones",
+								"zonename"
+							],
+							"query": [
+								{
+									"key": "langCode",
+									"value": "eng"
+								},
+								{
+									"key": "userID",
+									"value": "110118"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "ValidateDoc[Map Doc category with Doctype]",
+			"item": [
+				{
+					"name": "validate documents [Map doc]",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"docCategoryCode\": \"DocTest01\",\r\n    \"docTypeCode\": \"9c1db30e-3d10-4585-9d4e-813b3c899b99\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}"
+						},
+						"url": {
+							"raw": "https://int.mosip.io/v1/masterdata/validdocuments",
+							"protocol": "https",
+							"host": [
+								"int",
+								"mosip",
+								"io"
+							],
+							"path": [
+								"v1",
+								"masterdata",
+								"validdocuments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CenterType",
+			"item": []
+		},
+		{
+			"name": "Authmanager",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.authentication.useridPwd\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n       \"userName\": \"110077\",\r\n       \"password\": \"Techno@123\",\r\n    \"appId\": \"REGISTRATIONCLIENT\"\r\n   },\r\n  \"requesttime\": \"2019-12-09T06:12:52.994Z\",\r\n  \"version\": \"1.0\"\r\n}"
+				},
+				"url": {
+					"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/authmanager/authenticate/useridPwd",
+					"protocol": "https",
+					"host": [
+						"nginxsprod",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth using username and pasword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body matches string\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Username and password combination had been validated successfully\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request\": {\n        \"password\": \"mosip\",\n        \"appId\": \"registrationclient\",\n        \"userName\": \"110126\"\n    },\n    \"metadata\": \"\",\n    \"requesttime\": \"2020-05-12T08:28:27.140Z\",\n    \"id\": \"mosip.authentication.useridPwd\",\n    \"version\": \"1.0\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

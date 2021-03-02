@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "2f315642-7781-44e8-ab60-4c669dab4c34",
+		"name": "Manual Verification",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://qa.mosip.io/registrationprocessor/v1/manualverification/decision",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\" : \"mosip.manual.verification.decision\",\n  \"version\" : \"1.0\",\n  \"requesttime\": \"2020-12-03T05:45:30.659Z\",\n  \"request\" : {\n      \"matchedRefType\": \"RID\",\n      \"mvUsrId\": \"110119\",\n      \"reasonCode\": \"Problem with biometrics\",\n      \"regId\": \"10002100820000320201203061621\",\n      \"statusCode\": \"APPROVED\"\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/registrationprocessor/v1/manualverification/decision",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth_reg_proc",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"request\": {\r\n        \"password\": \"Techno@123\",\r\n        \"appId\": \"registrationclient\",\r\n        \"userName\": \"110119\"\r\n    },\r\n    \"metadata\": \"\",\r\n    \"requesttime\": \"2020-05-12T08:28:27.140Z\",\r\n    \"id\": \"mosip.authentication.useridPwd\",\r\n    \"version\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "assignment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.assignment\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-12-03T06:49:12.374Z\",\r\n  \"request\" : {\r\n  \"userId\": \"110024\",\r\n        \"matchType\" : \"ALL\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/registrationprocessor/v1/manualverification/assignment",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"assignment"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

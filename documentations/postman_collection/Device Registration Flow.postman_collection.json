@@ -1,0 +1,359 @@
+{
+	"info": {
+		"_postman_id": "e1d239fe-d7e9-469a-bf63-9be65ed8f08d",
+		"name": "Device Registration Flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login with Partner_Manager/Partner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"appId\": \"partner\",\r\n    \"password\": \"Techno@123\",\r\n    \"userName\": \"110122\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PartnerSelfRegistration-Device Provider",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"address\": \"headoffice12\",\r\n    \"contactNumber\": \"9988776655\",\r\n    \"emailId\": \"syncbyte@mock.co.in\",\r\n    \"organizationName\": \"Mosipabcd\",\r\n    \"partnerId\": \"SYNCBYTE\",\r\n    \"partnerType\": \"Device_Provider\",\r\n    \"policyGroup\": \"Device Provider\"\r\n  },\r\n  \"requesttime\": \"2021-12-25T04:55:50.853Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}//partnermanagement/v1/partners/partners",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"partnermanagement",
+						"v1",
+						"partners",
+						"partners"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with Device Provider Role",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"appId\": \"partner\",\r\n    \"password\": \"Techno@123\",\r\n    \"userName\": \"110122\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Save Device Details",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceProviderId\": \"SYNCBYTE\",\r\n    \"deviceSubTypeCode\": \"Double\",\r\n    \"deviceTypeCode\": \"Finger\",\r\n    \"id\": \"242425\",\r\n    \"isItForRegistrationDevice\": true,\r\n    \"make\": \"EYECOOL\",\r\n    \"model\": \"TCI322\",\r\n    \"partnerOrganizationName\": \"Mosipabcd\"\r\n  },\r\n  \"requesttime\": \"2021-02-25T09:40:35.029Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/partnermanagement/v1/partners/devicedetail",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partnermanagement",
+						"v1",
+						"partners",
+						"devicedetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service to approve/reject DeviceDetail",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"approvalStatus\": \"Activate\",\r\n    \"id\": \"2424224\",\r\n    \"isItForRegistrationDevice\": true\r\n  },\r\n  \"requesttime\": \"2021-02-25T06:51:38.294Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/partnermanagement/v1/partners/devicedetail",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partnermanagement",
+						"v1",
+						"partners",
+						"devicedetail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Service to save SecureBiometricInterfaceCreateDto",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceDetailId\": \"2424224\",\r\n    \"isItForRegistrationDevice\": true,\r\n    \"swBinaryHash\": \"string\",\r\n    \"swCreateDateTime\": \"2021-02-25T09:45:46.107Z\",\r\n    \"swExpiryDateTime\": \"2021-11-13T12:03:56.953Z\",\r\n    \"swVersion\": \"string\"\r\n  },\r\n  \"requesttime\": \"2021-02-25T09:45:46.107Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/partnermanagement/v1/partners/securebiometricinterface",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partnermanagement",
+						"v1",
+						"partners",
+						"securebiometricinterface"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with Partner_Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"appId\": \"partner\",\r\n    \"password\": \"Techno@123\",\r\n    \"userName\": \"110122\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve/reject SecureBiometricInterface",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"approvalStatus\": \"Activate\",\r\n    \"id\": \"a0f07849-8e42-4faa-815d-2ad4f07ea73f\",\r\n    \"isItForRegistrationDevice\": true\r\n  },\r\n  \"requesttime\": \"2020-11-17T04:22:12.882Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/partnermanagement/v1/partners/securebiometricinterface",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partnermanagement",
+						"v1",
+						"partners",
+						"securebiometricinterface"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login with GlobalAdmin in Admin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"appId\": \"admin\",\r\n    \"password\": \"Techno@123\",\r\n    \"userName\": \"110122\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Device in Mosip MasterDB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceSpecId\": \"736\",\r\n    \"id\": \"\",\r\n    \"ipAddress\": \"127.0.0.0\",\r\n    \"isActive\": true,\r\n    \"langCode\": \"eng\",\r\n    \"macAddress\": \"A4-BB-6D-0F-BC-3E\",\r\n    \"name\": \"FACE01\",\r\n    \"regCenterId\": \"10003\",\r\n    \"serialNum\": \"273125571\",\r\n    \"validityDateTime\": \"2021-11-17T03:51:58.017Z\",\r\n    \"zoneCode\": \"PHIL\"\r\n  },\r\n  \"requesttime\": \"2020-11-17T11:24:47.241Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/masterdata/devices",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"masterdata",
+						"devices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sign the registrered device using Partner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceData\": \"ewoJImRldmljZUlkIjogIjI0MjQyMjQiLCAgICAgCgkicHVycG9zZSI6ICJSZWdpc3RyYXRpb24iLAkiZGV2aWNlSW5mbyI6ImV3b0pDU0prWlhacFkyVlRkV0pKWkNJNklGc2lNU0lzSWpJaUxDSXpJbDBzQ2drSkltTmxjblJwWm1sallYUnBiMjRpT2lBaVREQWlMQW9KQ1NKa2FXZHBkR0ZzU1dRaU9pQWlaWGR2U2tsdVRteGpiV3hvWWtVMWRrbHFiMmRKYW10NFRrUnJNMDVxYTJsTVFXOUtTVzFTYkdSdGJHcGFWa0o1WWpOYWNGcEhWbmxKYW05blNXeE9XbFJyVGtOWFZsSkdTV2wzUzBOVFNtdGFXRnB3V1RKV1VXTnRPVEpoVjFKc1kydHNhMGxxYjJkSmJFNWFWR3RPUTFkV1VrWkphWGRMUTFOS2RGbFhkR3hKYW05blNXdFdXbEpWVGxCVU1IZHBURUZ2U2tsdE1YWmFSMVp6U1dwdlowbHNVa1JUVkUxNVRXbEpjME5uYTJsYVIwWXdXbFpTY0dKWFZXbFBhVUZwVFdwQmVVMVRNSGROYVRCNVRsWlJkMDlVYnpGT2VtOTRUME0wTTA1cVFtRkphWGRMUTFOS01HVllRbXhKYW05blNXdHNlV0ZZVFdsTVFXOUtTVzFTYkdSdGJHcGFWazR4V1d4U05XTkhWV2xQYVVGcFVrYzVNVmx0ZUd4SmFVRm5TVU5CUzJaUlBUMGlMQW9KQ1NKbWFYSnRkMkZ5WlNJNklDSlRRaTVYU1U0dU1EQXhJaXdLQ1FraVpHVjJhV05sUlhod2FYSjVJam9nSWpJd01qSXRNREV0TURoVU1UTTZNREk2TVRrdU56RTBXaUlzQ2drSkluUnBiV1Z6ZEdGdGNDSTZJQ0l5TURJeExUQXlMVEkxVkRBNU9qVTNPakU0TGpjMk1Gb2lJQ0FnQ24wPSIKICAgICAgICAgICAgICAKfQ==\"\r\n  },\r\n  \"requesttime\": \"2021-02-25T09:57:18.760Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}//partnermanagement/v1/partners/registereddevices",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"",
+						"partnermanagement",
+						"v1",
+						"partners",
+						"registereddevices"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Validate the Device added",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"deviceCode\": \"88617a99-80d1-41e7-9883-f8209c9000f0\",\r\n    \"deviceServiceVersion\": \"0.9.5\",\r\n    \"digitalId\": {\r\n      \"dateTime\": \"2020-10-06T11:09:18.601Z\",\r\n      \"deviceSubType\": \"Double\",\r\n      \"dp\": \"SYNCBYTE\",\r\n      \"dpId\": \"SYNCBYTE\",\r\n      \"make\": \"EYECOOL\",\r\n      \"model\": \"TCI322\",\r\n      \"serialNo\": \"9149769\",\r\n      \"type\": \"Iris\"\r\n    },\r\n    \"purpose\": \"REGISTRATION\",\r\n    \"timeStamp\": \"2021-02-25T10:02:28.359Z\"\r\n  },\r\n  \"requesttime\": \"2021-02-25T10:02:28.359Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/partnermanagement/v1/partners/deviceprovidermanagement/validate",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"partnermanagement",
+						"v1",
+						"partners",
+						"deviceprovidermanagement",
+						"validate"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

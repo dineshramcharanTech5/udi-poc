@@ -1,0 +1,1266 @@
+{
+	"info": {
+		"_postman_id": "ab2971de-792f-46dd-afa5-8e515a5725ab",
+		"name": "Reg Proc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "packet receiver",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Cookie",
+						"type": "text",
+						"value": "Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZWdpc3RyYXRpb25wcm9jZXNzb3IiLCJtb2JpbGUiOiI4ODkyMzIzNTQyIiwibWFpbCI6Im1vbm9iaWthc2guZGFzQG1pbmR0cmVlLmNvbSIsInJvbGUiOiJSRUdJU1RSQVRJT05fUFJPQ0VTU09SIiwibmFtZSI6InJlZ2lzdHJhdGlvbnByb2Nlc3NvciIsInJJZCI6IjEwMDAxMTAwMDEwMDAwMjIwMTkwNTEwMTIxNDY1OCIsImlhdCI6MTU3MTI4MzIwNiwiZXhwIjoxNTcxMjg5MjA2fQ.jV3b1yuW5XPCFj2AxcddnTHiWLu9hDTSHel-sUu0YhK_gvgzARacEJxZBdECpmQc4NQO81TH-RCqbga1N1P_EA",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "packet",
+							"type": "file",
+							"src": "/C:/Users/Piyush.Singh/Downloads/On Premis-reg client/PacketStore/13-Jan-2020/33333100740000320200113082043.zip"
+						},
+						{
+							"key": "packet",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "packet",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "packet",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						},
+						{
+							"key": "packet",
+							"type": "file",
+							"src": [],
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "https://mosip-tf.technoforte.co.in/registrationprocessor/v1/packetreceiver/registrationpackets",
+					"protocol": "https",
+					"host": [
+						"mosip-tf",
+						"technoforte",
+						"co",
+						"in"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"packetreceiver",
+						"registrationpackets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Re-process Packet",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"rid\": \"10002100820000120210203093551\",\r\n  \"reg_type\" : \"NEW\",\r\n  \"isValid\": true,\r\n  \"internalError\": false,\r\n  \"messageBusAddress\": \"packet-receiver-bus-out\",\r\n  \"retryCount\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/registrationprocessor/v1/securezone/notification",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"securezone",
+						"notification"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Re-process Packet",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"rid\": \"10002100820002020210208095727\",\r\n  \"reg_type\" : \"NEW\",\r\n  \"isValid\": true,\r\n  \"internalError\": false,\r\n  \"messageBusAddress\": \"packet-receiver-bus-out\",\r\n  \"retryCount\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{URL}}/registrationprocessor/v1/uploader/securezone",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"registrationprocessor",
+								"v1",
+								"uploader",
+								"securezone"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Oct 2019 16:26:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						},
+						{
+							"key": "Content-Length",
+							"value": "97"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "GET, POST"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains;"
+						}
+					],
+					"cookie": [],
+					"body": "\"Packet with registrationId '10001100730003320191021092214' has not been uploaded to file System\""
+				}
+			]
+		},
+		{
+			"name": "RID Search",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.registration.status\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-01-20T17:02:09.390Z\",\r\n  \"request\" : [\r\n\t{\r\n\t\t\"registrationId\" : \"33333100830000720191127773537\"\r\n\t},\r\n\t{\r\n\t\t\"registrationId\" : \"33333100830001520191129070777\"\r\n\t}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nginxsprod.eastus.cloudapp.azure.com/registrationprocessor/v1/registrationstatus/search",
+					"protocol": "https",
+					"host": [
+						"nginxsprod",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"registrationstatus",
+						"search"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "RID Search",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\" : \"mosip.registration.status\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2019-10-17T12:56:53.448Z\",\r\n  \"request\" : [\r\n\t{\r\n\t\t\"registrationId\" : \"33333100740000220190919133508\"\r\n\t},\r\n\t{\r\n\t\t\"registrationId\" : \"33333100740000220190919133508\"\r\n\t}\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxtf.southeastasia.cloudapp.azure.com/registrationprocessor/v1/registrationstatus/search",
+							"protocol": "https",
+							"host": [
+								"nginxtf",
+								"southeastasia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"registrationprocessor",
+								"v1",
+								"registrationstatus",
+								"search"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Oct 2019 16:27:07 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "189"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Response-Signature",
+							"value": "FSkdIdpena9IKZOHVTR5DoMbKRSNvS3fwuQJg_jmW1ov5TlTaTIgu3i1cGyVLyL_SVj9ZPKpOzOPRdr8bFBGFZDrZWTCWGmlj2bKQZibzQ2fJQkF5JIKRBjdpdRE2YYF6fMSZnGoPtMjwP1vf4WSQkUX5q0BNARww9KjnRHbFjRma3An1o3tMef4JXZwIDW00XYDyDe9C6XHv58zmIuIX06icIY_NZLvQPRGoDykJHD98UahKH8eNfAJLF7MiwqTbiEfGlp1tuCzjj2ozC_ibof_acgeWbyuX2Kh3YgvbkPzvn4GaqrxeVgb_CBWhiAf2AEFoVI9asfKPc626ACqeQ"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"errors\": [\n        {\n            \"errorCode\": \"RPR-AUT-02\",\n            \"message\": \"Access Denied For Role: REGISTRATION_PROCESSOR\"\n        }\n    ],\n    \"id\": \"mosip.registration.status\",\n    \"version\": \"1.0\",\n    \"responsetime\": \"2019-10-22T16:27:06.964Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Login Reg Proc",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"request\": {\r\n\t\t\"password\": \"mosip\",\r\n\t\t\"appId\": \"registrationprocessor\",\r\n\t\t\"userName\": \"registrationprocessor\"\r\n\t},\r\n\t\"metadata\": \"\",\r\n\t\"requesttime\": \"2020-01-20T16:33:38.237Z\",\r\n\t\"id\": \"io.mosip.registration.processor\",\r\n\t\"version\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/v1/authmanager/authenticate/useridPwd",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login Reg Proc",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"request\": {\r\n\t\t\"password\": \"mosip\",\r\n\t\t\"appId\": \"registrationprocessor\",\r\n\t\t\"userName\": \"registrationprocessor\"\r\n\t},\r\n\t\"metadata\": \"\",\r\n\t\"requesttime\": \"2019-09-28T16:33:38.237Z\",\r\n\t\"id\": \"io.mosip.registration.processor\",\r\n\t\"version\": \"1.0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxtf.southeastasia.cloudapp.azure.com/v1/authmanager/authenticate/useridPwd",
+							"protocol": "https",
+							"host": [
+								"nginxtf",
+								"southeastasia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"authmanager",
+								"authenticate",
+								"useridPwd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Oct 2019 16:26:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "238"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, DELETE, PUT, PATCH"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Date, Content-Type, Accept, X-Requested-With, Authorization, From, X-Auth-Token, Request-Id"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Set-Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Authorization",
+							"value": "Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZWdpc3RyYXRpb25wcm9jZXNzb3IiLCJtb2JpbGUiOiI4ODkyMzIzNTQyIiwibWFpbCI6Im1vbm9iaWthc2guZGFzQG1pbmR0cmVlLmNvbSIsInJvbGUiOiJSRUdJU1RSQVRJT05fUFJPQ0VTU09SIiwibmFtZSI6InJlZ2lzdHJhdGlvbnByb2Nlc3NvciIsInJJZCI6IjEwMDAxMTAwMDEwMDAwMjIwMTkwNTEwMTIxNDY1OCIsImlhdCI6MTU3MTc2MTYwNywiZXhwIjoxNTcxNzY3NjA3fQ.oCCpZXOkUebLwv820nd5wk0etlmvupvi6n0VungC2DjHasxFmCtXcb50vnF62HE_1VhAsgcaMwryHxlgkLEMpQ"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJyZWdpc3RyYXRpb25wcm9jZXNzb3IiLCJtb2JpbGUiOiI4ODkyMzIzNTQyIiwibWFpbCI6Im1vbm9iaWthc2guZGFzQG1pbmR0cmVlLmNvbSIsInJvbGUiOiJSRUdJU1RSQVRJT05fUFJPQ0VTU09SIiwibmFtZSI6InJlZ2lzdHJhdGlvbnByb2Nlc3NvciIsInJJZCI6IjEwMDAxMTAwMDEwMDAwMjIwMTkwNTEwMTIxNDY1OCIsImlhdCI6MTU3MTc2MTYwNywiZXhwIjoxNTcxNzY3NjA3fQ.oCCpZXOkUebLwv820nd5wk0etlmvupvi6n0VungC2DjHasxFmCtXcb50vnF62HE_1VhAsgcaMwryHxlgkLEMpQ; Max-Age=6000000; Expires=Tue, 31-Dec-2019 03:06:47 GMT; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains;"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"io.mosip.registration.processor\",\n    \"version\": \"1.0\",\n    \"responsetime\": \"2019-10-22T16:26:47.339Z\",\n    \"metadata\": null,\n    \"response\": {\n        \"status\": \"success\",\n        \"message\": \"Username and password combination had been validated successfully\"\n    },\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"string\",\r\n  \"metadata\": {},\r\n  \"request\": {\r\n    \"appId\": \"registrationclient\",\r\n    \"password\": \"Techno@123\",\r\n    \"userName\": \"110119\"\r\n  },\r\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\r\n  \"version\": \"string\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/v1/authmanager/authenticate/useridPwd",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"useridPwd"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"request\": {\n        \"password\": \"Techno@123\",\n        \"appId\": \"registrationprocessor\",\n        \"userName\": \"110077\"\n    },\n    \"metadata\": \"\",\n    \"requesttime\": \"2019-10-02T12:12:13.675Z\",\n    \"id\": \"mosip.authentication.useridPwd\",\n    \"version\": \"1.0\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxtf.southeastasia.cloudapp.azure.com/v1/authmanager/authenticate/useridPwd",
+							"protocol": "https",
+							"host": [
+								"nginxtf",
+								"southeastasia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"authmanager",
+								"authenticate",
+								"useridPwd"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Oct 2019 15:59:40 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "237"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, DELETE, PUT, PATCH"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Date, Content-Type, Accept, X-Requested-With, Authorization, From, X-Auth-Token, Request-Id"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Set-Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Authorization",
+							"value": "Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTAwNzciLCJtb2JpbGUiOiI5ODc2NTQzMjEyIiwibWFpbCI6InBpeXVzaC5zaW5naEB0ZWNobm9mb3J0ZS5jby5pbiIsInJvbGUiOiJSRUdJU1RSQVRJT05fQURNSU4iLCJuYW1lIjoiMTEwMDc3IiwiaWF0IjoxNTcxNzU5OTgwLCJleHAiOjE1NzE3NjU5ODB9.V-vWlk7ZwxafAi02JVaM6iiM4dzUdqdMnocTnkhwcfyXJ74NO82uZnIJen4SOuqeUJ0gaAI2bhmwBsYEnDM_TA"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTAwNzciLCJtb2JpbGUiOiI5ODc2NTQzMjEyIiwibWFpbCI6InBpeXVzaC5zaW5naEB0ZWNobm9mb3J0ZS5jby5pbiIsInJvbGUiOiJSRUdJU1RSQVRJT05fQURNSU4iLCJuYW1lIjoiMTEwMDc3IiwiaWF0IjoxNTcxNzU5OTgwLCJleHAiOjE1NzE3NjU5ODB9.V-vWlk7ZwxafAi02JVaM6iiM4dzUdqdMnocTnkhwcfyXJ74NO82uZnIJen4SOuqeUJ0gaAI2bhmwBsYEnDM_TA; Max-Age=6000000; Expires=Tue, 31-Dec-2019 02:39:40 GMT; Path=/; HttpOnly"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains;"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"mosip.authentication.useridPwd\",\n    \"version\": \"1.0\",\n    \"responsetime\": \"2019-10-22T15:59:40.357Z\",\n    \"metadata\": null,\n    \"response\": {\n        \"status\": \"success\",\n        \"message\": \"Username and password combination had been validated successfully\"\n    },\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Crypto Manager to Encrypt the data for sync",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\n    \"request\": {\n        \"timeStamp\": \"2020-01-20T12:29:02.095Z\",\n        \"data\": \"ew0KICAiaWQiIDogIm1vc2lwLnJlZ2lzdHJhdGlvbi5zeW5jIiwNCiAgInJlcXVlc3R0aW1lIiA6ICIyMDIwLTAxLTIwVDA1OjUyOjM2LjIyMVoiLA0KICAidmVyc2lvbiIgOiAiMS4wIiwNCiAgInJlcXVlc3QiIDogWyB7DQogICAgImxhbmdDb2RlIiA6ICJlbmciLA0KICAgICJyZWdpc3RyYXRpb25JZCIgOiAiMTAwMDExMDA3NDQ2MTE2MjAyMDAxMjAwNTUyMzYiLA0KICAgICJyZWdpc3RyYXRpb25UeXBlIiA6ICJORVciLA0KICAgICJwYWNrZXRIYXNoVmFsdWUiIDogIjU2Q0RGQTU4M0VBQjk4RjI3NkFFOEI2NDI0QUQzODJBOEMzOUIwMEI0NDBDREY5MjdFQUQ2REM0NkEzNzJEMjEiLA0KICAgICJwYWNrZXRTaXplIiA6IDI2MjM5OCwNCiAgICAic3VwZXJ2aXNvclN0YXR1cyIgOiAiQVBQUk9WRUQiLA0KICAgICJzdXBlcnZpc29yQ29tbWVudCIgOiAiQVBQUk9WRUQiDQogIH0sIHsNCiAgICAibGFuZ0NvZGUiIDogImVuZyIsDQogICAgInJlZ2lzdHJhdGlvbklkIiA6ICIxMDAwMTEwMDc0NjQ5NjIyMDIwMDEyMDA1NTI0MyIsDQogICAgInJlZ2lzdHJhdGlvblR5cGUiIDogIk5FVyIsDQogICAgInBhY2tldEhhc2hWYWx1ZSIgOiAiMUM1MUNCMkM4MTJBRDBFRTA0QkVEN0U1ODAwQzg1MEQxMzBCQzJBNDMxRkEzNjBEQzI5MENGRjVDRUJGQkFDMSIsDQogICAgInBhY2tldFNpemUiIDogMjYyNDE5LA0KICAgICJzdXBlcnZpc29yU3RhdHVzIiA6ICJBUFBST1ZFRCIsDQogICAgInN1cGVydmlzb3JDb21tZW50IiA6ICJBUFBST1ZFRCINCiAgfSwgew0KICAgICJsYW5nQ29kZSIgOiAiZW5nIiwNCiAgICAicmVnaXN0cmF0aW9uSWQiIDogIjEwMDAxMTAwNzQ3NjA2NzIwMjAwMTIwMDU1MjQ3IiwNCiAgICAicmVnaXN0cmF0aW9uVHlwZSIgOiAiTkVXIiwNCiAgICAicGFja2V0SGFzaFZhbHVlIiA6ICIyNDlDN0EwQzIzRTRFRjhGQ0JFMzU4NjkyMEI0MEZFRDJEOTUzNDc0OTI5NzI4QzlCNDNDRDRBMDM0MTUwMEJDIiwNCiAgICAicGFja2V0U2l6ZSIgOiAyNjIzNzYsDQogICAgInN1cGVydmlzb3JTdGF0dXMiIDogIkFQUFJPVkVEIiwNCiAgICAic3VwZXJ2aXNvckNvbW1lbnQiIDogIkFQUFJPVkVEIg0KICB9IF0NCn0\",\n        \"applicationId\": \"REGISTRATION\",\n        \"referenceId\": \"10001_10074\"\n    },\n    \"metadata\": \"\",\n    \"requesttime\": \"2020-01-20T12:29:02.095Z\",\n    \"id\": \"mosip.registration.sync\",\n    \"version\": \"1.0\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/v1/cryptomanager/encrypt",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"v1",
+						"cryptomanager",
+						"encrypt"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Crypto Manager to Encrypt the data for sync",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n    \"request\": {\n        \"timeStamp\": \"2019-10-22T13:42:16.786Z\",\n        \"data\": \"ew0KICAiaWQiIDogIm1vc2lwLnJlZ2lzdHJhdGlvbi5zeW5jIiwNCiAgInJlcXVlc3R0aW1lIiA6ICIyMDE5LTEwLTIyVDEzOjQyOjE2LjgzOFoiLA0KICAidmVyc2lvbiIgOiAiMS4wIiwNCiAgInJlcXVlc3QiIDogWyB7DQogICAgImxhbmdDb2RlIiA6ICJlbmciLA0KICAgICJyZWdpc3RyYXRpb25JZCIgOiAiMTAwMDExMDA3NDYxOTk0MjAxOTEwMjIxMzQyMTYiLA0KICAgICJyZWdpc3RyYXRpb25UeXBlIiA6ICJORVciLA0KICAgICJwYWNrZXRIYXNoVmFsdWUiIDogIkZGMTFFRTY2NzlEQzY2QUI3NjlERkZDQzk0MEVCNEEzNUJEM0Q2MzdBMzU4RjExMjJBNEI1Q0Y0RTg1MUUxQkYiLA0KICAgICJwYWNrZXRTaXplIiA6IDE2ODEyNiwNCiAgICAic3VwZXJ2aXNvclN0YXR1cyIgOiAiQVBQUk9WRUQiLA0KICAgICJzdXBlcnZpc29yQ29tbWVudCIgOiAiQVBQUk9WRUQiDQogIH0sIHsNCiAgICAibGFuZ0NvZGUiIDogImVuZyIsDQogICAgInJlZ2lzdHJhdGlvbklkIiA6ICIxMDAwMTEwMDc0ODE0NjUyMDE5MTAyMjEzNDEwOCIsDQogICAgInJlZ2lzdHJhdGlvblR5cGUiIDogIk5FVyIsDQogICAgInBhY2tldEhhc2hWYWx1ZSIgOiAiNDRBQjRCMDQ5MjM3QzJDMzZBMTk2RkM0NzExNDFBQzhBQTA3RjgwOEQ1MzM3QjBBMTdFQzlDOUQ5MDMwNDkzQiIsDQogICAgInBhY2tldFNpemUiIDogMTY4MTA0LA0KICAgICJzdXBlcnZpc29yU3RhdHVzIiA6ICJBUFBST1ZFRCIsDQogICAgInN1cGVydmlzb3JDb21tZW50IiA6ICJBUFBST1ZFRCINCiAgfSBdDQp9\",\n        \"applicationId\": \"REGISTRATION\",\n        \"referenceId\": \"10001_10074\"\n    },\n    \"metadata\": \"\",\n    \"requesttime\": \"2019-10-22T13:42:16.786Z\",\n    \"id\": \"mosip.registration.sync\",\n    \"version\": \"1.0\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://nginxtf.southeastasia.cloudapp.azure.com/v1/cryptomanager/encrypt",
+							"protocol": "https",
+							"host": [
+								"nginxtf",
+								"southeastasia",
+								"cloudapp",
+								"azure",
+								"com"
+							],
+							"path": [
+								"v1",
+								"cryptomanager",
+								"encrypt"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.17.2"
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 22 Oct 2019 15:59:21 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						},
+						{
+							"key": "Access-Control-Allow-Methods",
+							"value": "POST, GET, OPTIONS, DELETE, PUT, PATCH"
+						},
+						{
+							"key": "Access-Control-Allow-Headers",
+							"value": "Date, Content-Type, Accept, X-Requested-With, Authorization, From, X-Auth-Token, Request-Id"
+						},
+						{
+							"key": "Access-Control-Expose-Headers",
+							"value": "Set-Cookie"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache"
+						},
+						{
+							"key": "Expires",
+							"value": "0"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=15724800; includeSubDomains;"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "gzip"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"mosip.registration.sync\",\n    \"version\": \"1.0\",\n    \"responsetime\": \"2019-10-22T15:59:21.407Z\",\n    \"metadata\": null,\n    \"response\": {\n        \"data\": \"DlCsyOmjcz7u4xjCCcDa75yewbtL_8C9DCrTZg-stiyNlVTq0BUzj15LC842R74SMJXNMQ9lM9xO82fEe_EHWcr6dUUI3QrjaaVu64w-yGAUYGszGcE5avW24O0BB0d6ur6o3MMAu0cVsakZS2s5sopV-gjjvjIrpgVFAgKVz5p74zSOS2WfGm62qbJzQkaiNwHVSiOe3BfoJ03nij4U6PBxLRqW3g2gBFstlrfyawq-tSsu0DKHnYMTCpJlO4thJ4yZZmnSgcy5_ymnFWP8GzaaYGWDowo2b1PHmlrrol8u22-Z5Bdb2tLMHd5opuxmViXISuu4MdkE4TS-biIClSNLRVlfU1BMSVRURVIjfDewmRQgD542eh6BVYVJpyCT_JYh44AcRzNPM8zJi5nZZz7U4aivzwxx_jzd1o87SBornDg1zH2s3lfa13wtcPTJgeGmb3I6I92WmhJnBfk8lEcQ_ZxLpbuzzhRiCVn7jMfzskLnSwmJcS-Nt5Z7VTm5sHdWC-nHs38EYkfalfmwyPJCg53tmGi0MYEbPuUNzvvz3Gpj09NY2cyG8HJLoVv0E4Vp5DPkpyDRQ50T9AWNF8MfktGMOqhWUiGRDRCAWy8crqUywDY-1X_Dv7TctCKttNd7ZbIFT9Flj069ltM-6pmhEOfoIFByJOSBFeCL_LKUMxoINQJYkpoFf4ofDhYAlBlAT2lcbHcgw_Sr_zBcGL1RxtisulW4EpK4ycDtgYe7lg_YwPwBhzFTnViaoy-TDavzF4wuS2c-M4ZEmSid9_Kwn8-MPXH8Vpz28b_W3A2IjK8NjEJwHYC-EXD7tuQzKiAx6jJvP8LAa-ek9BXkOeOhm-sX7grkCpbxz4F4scHhZCGiG2b1ECiGlB1K8-BII0aRj7veDdiVlhWLUS8syiqAkTIcGMDt2m7qi4CsXvVS0ZhQt7MdA0O3aq-gYi3CAso-8XYb7ONkPaznlSJGbOXkvHKNSCnTVXXG_j9Zzgc2BYt5Oat4nggBc8pcefscn826KpnVkH2KWdjZqsayZoHYqK8cvfLWmoXtaM7INIxoNRMUGB23Z6hdhsDlMDXiNjXtslVaAvmxRTmFuSsfhBima6zuetAy8FhiMSFMRA2bga72F-dGcsGuWdZCLTBU2rvTciB7QDvAr_TdGfpdPp0T85Ipj4MqJul3Jl7vTaPpfCWiH6o6sIxnbRiXYK0SHOCzPSnZbss1QBPkaADzdMPsNJa6Gh3xKB3XokcXebRbWhdlVZ0XTbpSSd0kjhMcNZyriUHAOtonArbUpjOT-VfiaDWPHyb9PETlLDP01hQtnz8xgOpUUpx5OJIUCz_N6dLBrVuWIF4W9pcaQ8UM8p328uLUKgD3pQN87df_7Fz4VAyoYA1IYRXEMPUdaafrRYR7DXFOr1spo0IujRc\"\n    },\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Packet Sync",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Cookie",
+						"value": "Authorization=Mosip-TokeneyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiIxMTAwNzciLCJtb2JpbGUiOiI5ODc2NTQzMjEyIiwibWFpbCI6InBpeXVzaC5zaW5naEB0ZWNobm9mb3J0ZS5jby5pbiIsInJvbGUiOiJSRUdJU1RSQVRJT05fQURNSU4sWk9OQUxfQURNSU4iLCJuYW1lIjoiMTEwMDc3IiwiaWF0IjoxNTc3OTY2MzU0LCJleHAiOjE1Nzc5NzIzNTR9.Lgr8P-zLsFIrwHbnu-uQechbiv4c1ZeEGZLWoubZii8giXTy8yb5JIXQvkokFI9uG_GeljRqJVadm6nwvc3_Pw",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Center-Machine-RefId",
+						"value": "10001_10074",
+						"type": "text"
+					},
+					{
+						"key": "timestamp",
+						"value": "2020-01-20T12:28:47.661Z",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\"ezSYwRRwElCKyAGr69MTep08oB5ci_ad3XTII3HQiRXCfYrEM1Xjg9hVimg9UFuCEhI6sK0CoaslNDExRlo9lz5HmAkxt0naD3sfaKycoE6XkCZGiOtyMBx6xj889eidenw0KflswIiswogitAfNIrN9IoT_pFKBkQz2kQaEwTsZuXzat1xaU22w5x7lrAkU0cMe_CWTxjaZ979JqHlaIhNZbhoSeNr6evWYnEJNic1cT8NiadMq6cQ0c_Qpj2IePNJ5qlthgwnw2PFxdgBOaMglHfGOcP0f7-2F5CUVnC5oVbSslaS_uLQ_VeYojSu-hYtdehrAFAHmlrEBt-yTWSNLRVlfU1BMSVRURVIjswBMG0eP4fEBDXim4N30u0fUMjHxxQ_EhRUBQGrJGhvf9ftgFJ6NV337zEttI758J11Wi3fsMjWKGIyyDNzfOacxg0sn0fyMUPPyuxpBKRe4mGLnudYQBb9RzrwqXX_5zkdsh7wg-IXIPj2Xo3innPBQ60nr_ZkaJaghgEk2yK7jyZyJFf1zka9Hs1SUP9_ClmRmA24JpCaVmGls2wjo4RhHOERjJs_4SDvKNsKPtIV0H1BeD3mj54wBJk9GhhXCgYJqd6Hk-FM4BQDmDWT9_R5w3XKZ-s-XupUl47myXoC1ro9lKeJb4qmNSF2lxT6VeRCNESHfpCbqcWsHqlY9dmUyAWPjDg0KmK96lI8KiYG2f25AFP-3vrDlT4gu22rczfqD73oxn1Ph9i2cxg2gWCfouctYxeKRrEvlN-lo61CyVCaTz7Xm8iCsV-smrSK-cjv2qeQwPGAcVKbPmPYVP4-ueo62j5S_QG20pt2vgk7FjDTLqrVEn8WsKwubxbbR9ApeTuukHZ756x8P6Gj0I20YItyoH1Dnv-45oKY8iwVWLrzf5m5lZVMD7ZXylyYyvpjx6rHNg6VpE6J-w_13-Cpsuh6Jy8g4DiMBL6UyeKoFkXtqdT8jN2zYeNlyd62OgiWZzYBthyiC3LTVoV6Y_XbTkEHY7Cha2MBlFRvhA4Q-v8_kViQ0--7OpQMP_2XC7nQZZHKPHtDkBLQ9-T0UKrb-PBkjQRMQYA7imH5J3hSb4uC87G7RSq3ty_K_augMk7cRHu7Mm8ntets9jUFv3SS4thHJBkMWn8Fl16x5j0G5ISbNWxErRwbqKi1bRuuae1amtu8uv_t62rYxUB7eMJNkAwGnPYb8FY1_QB8--GHgNSgR5FWJCm3q8BOyzzc2TLU2foapwaNEkKw2XSkJZimNN_X9L2kbi6flI7lHPGo5WmdmASOPDxIIbJgMk7Q9wy80U6iQPKYaOVLbCSo6VY4FoSf2nzFnIEHYfZAvlqIOmeftmyf43AqOOLBptdB7uDF55lOqLHJ8gLH1u8K3SY1hGXyVe4V3Z5kgsZABZ4p2h5caZkHBZGVs-YeZ_SvWMH-nS--A-JVE5lIEuDqrCZAQo2WJ-82VL_86ThkDZXkFUS3OW3AgEe-h7qplHjJNFcaoh1Sl2vAuk5T4bWRhOqtUMQjAxoJSlu7p1VEnriPu-DJAZAehCja3FF08g1BOz1mkjgNH9RynTDUbT_Y-iWfOas97yIy9H-9VoeAjacBLFtTLNVaofbxjL_Cs15AraHrDJSKugzZUmmeWOl1qn_9te5xxfdwVfB7u_tLqGv-gMh_hQNBKv8_Bdax28VhQ9pPqgBXRoJQTIzQGHc00mCtdzspw3job_fY5Ykdt_fwdv_sh9ZN75PifAnER3ls9nhTA-efWBLKIA4zJFR_IeUl9QufBZkMwUvdwqgHRlc4pdytOfVMigM0xONKjvvGueWul0LA3Nk-AH0TYyDf26w\"",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nginxtf.southeastasia.cloudapp.azure.com/registrationprocessor/v1/registrationstatus/sync",
+					"protocol": "https",
+					"host": [
+						"nginxtf",
+						"southeastasia",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"registrationstatus",
+						"sync"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Bio Dedupe API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nginxsprod.eastus.cloudapp.azure.com/v1/bio-dedupe/biometricfile/{referenceid}",
+					"protocol": "https",
+					"host": [
+						"nginxsprod",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"v1",
+						"bio-dedupe",
+						"biometricfile",
+						"{referenceid}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Activate-Deactivate UIN-Packet Generator",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{  \"id\": \"mosip.registration.packetgenerator\",\n  \"version\": \"1.0\",\n  \"requesttime\": \"2020-06-11T04:38:34.612Z\",\n  \"request\": {\n    \"centerId\": \"10002\",\n    \"machineId\": \"10074\",\n    \"reason\": \"Dead\",\n    \"registrationType\": \"DEACTIVATED\",\n    \"uin\": \"5609587061\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/registrationprocessor/v1/requesthandler/packetgenerator",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"requesthandler",
+						"packetgenerator"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Assignment",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.assignment\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-07-08T09:02:46.945Z\",\r\n  \"request\" : {\r\n\t\"userId\": \"110119\",\r\n        \"matchType\" : \"all\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://sandboxv2.southindia.cloudapp.azure.com/registrationprocessor/v1/manualverification/assignment",
+					"protocol": "https",
+					"host": [
+						"sandboxv2",
+						"southindia",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"assignment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Decision",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.decision\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-07-30T09:27:38.585Z\",\r\n  \"request\" : {\r\n\t  \"matchedRefId\": \"10002100740000620200707045712\",\r\n\t  \"matchedRefType\": \"RID\",\r\n\t  \"mvUsrId\": \"110119\",\r\n\t  \"reasonCode\": \"Problem with biometrics\",\r\n\t  \"regId\": \"10002100740001120200728071101\",\r\n\t  \"statusCode\": \"APPROVED\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://extint.technoforte.co.in/registrationprocessor/v1/manualverification/decision",
+					"protocol": "https",
+					"host": [
+						"extint",
+						"technoforte",
+						"co",
+						"in"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"decision"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplicantBiometric",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.biometric\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-06-25T05:31:51.625Z\",\r\n  \"request\" : {\r\n\t  \"regId\": \"10002100740009220200608101142\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/registrationprocessor/v1/manualverification/applicantBiometric",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"applicantBiometric"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ApplicantDemographic",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.demographic\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-06-08T11:13:10.921Z\",\r\n  \"request\" : {\r\n\t  \"regId\": \"10002100740009220200608101142\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/registrationprocessor/v1/manualverification/applicantDemographic",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"applicantDemographic"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PacketInfo",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\" : \"mosip.manual.verification.packetinfo\",\r\n  \"version\" : \"1.0\",\r\n  \"requesttime\": \"2020-01-16T11:02:31.724Z\",\r\n  \"request\" : {\r\n\t  \"regId\": \"33333100740000720200116043832\"\r\n\t}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://nginxsprod.eastus.cloudapp.azure.com/registrationprocessor/v1/manualverification/packetInfo",
+					"protocol": "https",
+					"host": [
+						"nginxsprod",
+						"eastus",
+						"cloudapp",
+						"azure",
+						"com"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"manualverification",
+						"packetInfo"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Print",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.registration.print\",\r\n  \"request\": {\r\n    \"cardType\": \"UIN\",\r\n    \"idValue\": \"4693741623\",\r\n    \"idType\": \"UIN\"\r\n  },\r\n  \"requesttime\": \"2020-03-24T11:25:26.380Z\",\r\n  \"version\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/registrationprocessor/v1/print/uincard",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"print",
+						"uincard"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reprint",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.uincard.reprint\",\r\n  \"request\": {\r\n    \"cardType\": \"UIN\",\r\n    \"centerId\": \"10003\",\r\n    \"id\": \"5647294083\",\r\n    \"idType\": \"UIN\",\r\n    \"machineId\": \"10003\",\r\n    \"reason\": \"testing\",\r\n    \"registrationType\": \"RES_REPRINT\"\r\n  },\r\n  \"requesttime\": \"2019-09-13T11:34:13.827Z\",\r\n  \"version\": \"1.0\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/v1/requesthandler/reprint",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"v1",
+						"requesthandler",
+						"reprint"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lost UIN Or RID API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.registration.lost\",\r\n  \"requesttime\": \"2019-09-13T11:34:13.827Z\",\r\n  \"version\": \"1.0\",\r\n  \"request\": {\r\n    \"idType\": \"UIN\",\r\n    \"name\": \"Monobikash Das\",\r\n    \"postalCode\": \"14022\",\r\n    \"contactType\": \"EMAIL\",\r\n    \"contactValue\": \"monobikash.das@mindtree.com\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/registrationprocessor/v1/requesthandler/lost",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"requesthandler",
+						"lost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update UIN API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.registration.update\",\r\n  \"version\": \"v1\",\r\n  \"requestTime\": \"2018-12-09T06:39:04.683Z\",\r\n  \"request\": {\r\n      \"idValue\": \"9830872690593682\",\r\n      \"idType\": \"UIN\",\r\n      \"centerId\": \"1234\",\r\n      \"machineId\": \"12345678\",\r\n      \"identityJson\": \"<base 64 encoded string>\",\r\n      \"proofOfAddress\": \"<base 64 encoded string>\",\r\n      \"proofOfIdentity\": \"<base 64 encoded string>\",\r\n      \"proofOfRelationship\": \"<base 64 encoded string>\",\r\n      \"proofOfDateOfBirth\": \"<base 64 encoded string>\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/registrationprocessor/v1/requesthandler/update",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"registrationprocessor",
+						"v1",
+						"requesthandler",
+						"update"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

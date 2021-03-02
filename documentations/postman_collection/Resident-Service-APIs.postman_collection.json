@@ -1,0 +1,466 @@
+{
+	"info": {
+		"_postman_id": "c5ac1c69-59bb-467e-abd7-12776e35cc29",
+		"name": "Resident-Service-APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "OTP Request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n  \"id\": \"mosip.resident.otp\",\r\n  \"version\": \"v1\",\r\n  \"requestTime\": \"2020-04-15T06:27:40.454Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"3465301943\",\r\n  \"individualIdType\": \"UIN\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/otp",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"otp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check Status with RID [UIN Generation/Updation,Reprint]",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.checkstatus\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-04-15T07:19:44.835Z\",\r\n  \"request\": {\r\n  \"individualId\": \"10002100820002620200407111258\",\r\n  \"individualIdType\": \"RID\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/rid/check-status",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"rid",
+						"check-status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "EUIN",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"id\": \"mosip.resident.euin\",\r\n\"request\": {\r\n\"transactionID\": \"1234567890\",\r\n\"individualId\": \"8052617625\",\r\n\"individualIdType\": \"UIN\",\r\n\"cardType\": \"UIN\",\r\n\"otp\": \"174070\"\r\n},\r\n\"requesttime\": \"2020-04-15T10:50:28.946Z\",\r\n\"version\": \"v1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/euin",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"euin"
+					]
+				},
+				"description": "The Password for Card is - Pin Code + Full Name\n\nif the Name is “Piyush” and Pin Code is “NA” \nPassword: NAPiyush\n\nExample:\nFor a Full Name is “Rounak Nayak” and “11002”.\nPassword is “11002Rounak Nayak”\n\nNote: When I say full name it is with Space.\n"
+			},
+			"response": []
+		},
+		{
+			"name": "PRINT UIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"mosip.resident.printuin\",\n  \"version\": \"v1\",\n  \"requesttime\": \"2020-04-15T08:43:54.670Z\",\n  \"request\": {\n  \"transactionID\": \"1234567890\",\n  \"individualId\": \"8052617625\",\n  \"individualIdType\": \"UIN\",\n  \"cardType\": \"UIN\",\n  \"otp\": \"655959\"\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/print-uin",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"print-uin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOST UIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.lostuin\",\r\n  \"version\": \"v1\",\r\n  \"requestTime\": \"2018-12-09T06:39:04.683Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualIdType\": \"demo\",\r\n  \"otp\": \"902792\",\r\n  \"demographics\": {\r\n      \"name\": [\r\n        {\r\n                    \"language\": \"eng\",\r\n                    \"value\": \"Test New UIN\"\r\n                },\r\n                {\r\n                    \"language\": \"ara\",\r\n                    \"value\": \"تِست نِو ُِن\"\r\n                }\r\n      ],\r\n      \"gender\": [\r\n        {\r\n                    \"language\": \"eng\",\r\n                    \"value\": \"Female\"\r\n                },\r\n                {\r\n                    \"language\": \"ara\",\r\n                    \"value\": \"أنثى\"\r\n                }\r\n      ],\r\n       \"postalCode\": \"NA\",\r\n      \"phone\": {\r\n          \"type\": \"9606139887\"\r\n        },\r\n      \"email\": {\r\n          \"type\": \"niyati.swami@technoforte.co.in\"\r\n        }\r\n    }\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/uin",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"uin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LOST RID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.lostrid\",\r\n  \"version\": \"v1\",\r\n  \"requestTime\": \"2018-12-09T06:39:04.683Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualIdType\": \"demo\",\r\n  \"otp\": \"902792\",\r\n  \"demographics\": {\r\n      \"name\": [\r\n        {\r\n                    \"language\": \"eng\",\r\n                    \"value\": \"Test New UIN\"\r\n                },\r\n                {\r\n                    \"language\": \"ara\",\r\n                    \"value\": \"تِست نِو ُِن\"\r\n                }\r\n      ],\r\n      \"gender\": [\r\n        {\r\n                    \"language\": \"eng\",\r\n                    \"value\": \"Female\"\r\n                },\r\n                {\r\n                    \"language\": \"ara\",\r\n                    \"value\": \"أنثى\"\r\n                }\r\n      ],\r\n       \"postalCode\": \"NA\",\r\n      \"phone\": {\r\n          \"type\": \"9606139887\"\r\n        },\r\n      \"email\": {\r\n          \"type\": \"niyati.swami@technoforte.co.in\"\r\n        }\r\n    }\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/rid",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"rid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update UIN",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n  \"id\": \"mosip.resident.updateuin\",\n   \"version\":\"v1\",\n   \"requesttime\":\"2020-04-15T13:54:35.835Z\",\n   \"request\":{ \n      \"transactionID\":\"1234567890\",\n      \"individualId\":\"8052617625\",\n      \"individualIdType\":\"UIN\",\n      \"otp\":\"173492\",\n      \"identityJson\":\"ewoJImlkZW50aXR5IjogewoJCSJhZGRyZXNzTGluZTEiOiBbewoJCQkibGFuZ3VhZ2UiOiAiZW5nIiwKCQkJInZhbHVlIjogIkdpbmdlZSIKCQl9LCB7CgkJCSJsYW5ndWFnZSI6ICJhcmEiLAoJCQkidmFsdWUiOiAiR2luZ2VlIgoJCX1dLAoJCSJyZWdpb24iOiBbewoJCQkibGFuZ3VhZ2UiOiAiZW5nIiwKCQkJInZhbHVlIjogIlJhYmF0IFNhbGUgS2VuaXRyYSIKCQl9LCB7CgkJCSJsYW5ndWFnZSI6ICJhcmEiLAoJCQkidmFsdWUiOiAi2KzZh9ipINin2YTYsdio2KfYtyDYs9mE2Kcg2KfZhNmC2YbZiti32LHYqSIKCQl9XSwKCQkicHJvdmluY2UiOiBbewoJCQkibGFuZ3VhZ2UiOiAiZW5nIiwKCQkJInZhbHVlIjogIk5BIgoJCX0sIHsKCQkJImxhbmd1YWdlIjogImFyYSIsCgkJCSJ2YWx1ZSI6ICJOQSIKCQl9XSwKCQkiY2l0eSI6IFt7CgkJCSJsYW5ndWFnZSI6ICJlbmciLAoJCQkidmFsdWUiOiAiTkEiCgkJfSwgewoJCQkibGFuZ3VhZ2UiOiAiYXJhIiwKCQkJInZhbHVlIjogIk5BIgoJCX1dLAoJCSJwb3N0YWxDb2RlIjogIk5BIiwKCQkiem9uZSI6IFt7CgkJCSJsYW5ndWFnZSI6ICJlbmciLAoJCQkidmFsdWUiOiAiTkEiCgkJfSwgewoJCQkibGFuZ3VhZ2UiOiAiYXJhIiwKCQkJInZhbHVlIjogIk5BIgoJCX1dLAoJCSJwcm9vZk9mQWRkcmVzcyI6IHsKCQkJInZhbHVlIjogIlBPQV9SZW50YWwgY29udHJhY3QiLAoJCQkidHlwZSI6ICJSTkMiLAoJCQkiZm9ybWF0IjogImpwZWciCgkJfSwKCQkicHJvb2ZPZklkZW50aXR5IjogewoJCQkidmFsdWUiOiAiUE9JX1BBTiBjYXJkIiwKCQkJInR5cGUiOiAiRE9DMDAyIiwKCQkJImZvcm1hdCI6ICJqcGciCgkJfSwKCQkiSURTY2hlbWFWZXJzaW9uIjogMS4wLAoJCSJVSU4iOiA4MDUyNjE3NjI1Cgl9Cn0=\"\n      \n   }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/update-uin",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"update-uin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Generate VID",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.vid\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-04-15T06:48:01.481Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"3465301943\",\r\n  \"individualIdType\": \"UIN\",\r\n  \"otp\": \"145898\",\r\n  \"vidType\": \"Temporary\" \r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/vid",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"vid"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Revoke VID",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.vidstatus\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-03-19T08:41:21.178Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"2580285098104196\",\r\n  \"individualIdType\": \"VID\",\r\n  \"otp\": \"825356\",\r\n  \"vidStatus\": \"REVOKED\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/vid/6075632879251893",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"vid",
+						"6075632879251893"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth-lock[BIO/DEMO/OTP]",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.authlock\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-03-19T10:39:04.683Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"3208702165\",\r\n  \"individualIdType\": \"UIN\",\r\n  \"otp\": \"761391\",\r\n  \"authType\": [\"demo\"]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/auth-lock",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"auth-lock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Unauth-lock[BIO/DEMO/OTP]",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.authunlock\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-03-19T10:39:04.683Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"3208702165\",\r\n  \"individualIdType\": \"UIN\",\r\n  \"otp\": \"741484\",\r\n  \"authType\": [\"demo\"]\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/auth-unlock",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"auth-unlock"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth- History",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"mosip.resident.authhistory\",\r\n  \"version\": \"v1\",\r\n  \"requesttime\": \"2020-03-19T10:39:04.683Z\",\r\n  \"request\": {\r\n  \"transactionID\": \"1234567890\",\r\n  \"individualId\": \"3479831705\",\r\n  \"individualIdType\": \"UIN\",\r\n  \"otp\": \"312043\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/resident/v1/req/auth-history",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"resident",
+						"v1",
+						"req",
+						"auth-history"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "NK_idauthentication/otp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"id\": \"mosip.identity.otp\",\n\"version\": \"1.0\",\n\"requestTime\": \"2020-04-15T16:52:54.713+05:30\",\n\"transactionID\": \"1234567890\",\n\"individualId\": \"8052617625\",\n\"individualIdType\": \"UIN\",\n\"otpChannel\": [\"EMAIL\",\"PHONE\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://qa.mosip.io/idauthentication/v1/otp/1873299273/735899345",
+					"protocol": "https",
+					"host": [
+						"qa",
+						"mosip",
+						"io"
+					],
+					"path": [
+						"idauthentication",
+						"v1",
+						"otp",
+						"1873299273",
+						"735899345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "send OTP_Auth_v2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"id\": \"string\",\n  \"metadata\": {},\n  \"request\": {\n    \"appId\": \"regproc\",\n    \"clientId\": \"mosip-regproc-client\",\n    \"secretKey\": \"abc123\"\n  },\n  \"requesttime\": \"2018-12-10T06:12:52.994Z\",\n  \"version\": \"string\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/v1/authmanager/authenticate/clientidsecretkey",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"v1",
+						"authmanager",
+						"authenticate",
+						"clientidsecretkey"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
