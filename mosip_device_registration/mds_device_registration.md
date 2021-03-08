@@ -1,32 +1,32 @@
-### Bio-Metrices Device Set up ( Dual IRIS & Fingerprint Devic)
+### Bio-Metrices Device Set up ( for Dual IRIS & Fingerprint Device)
 
-1. Set up following device drivers  as in 1.1 to 1.3
-
+ 1.     Set up following device drivers  as in 1.1 to 1.3
 
 MDS for Enrollment Device(L0) Setups
 
-1.1     MATISX Driver Setup (Dual IRIS) 
+ 1.1     MATISX Driver Setup (Dual IRIS) 
          - MATISXDriver.zip
 
-1.2     MORPHS60 Driver Setup (Fingerprint Device - Ten print)
+ 1.2     MORPHS60 Driver Setup (Fingerprint Device - Ten print)
         - MORPHS60Driver.zip
 
-1.3     MDS Setup 
+ 1.3     MDS Setup 
         - Mantra_MDS_2.0.6_Spec_0.9.5.zip
 
-1.4     MDS User Manual 
+ 1.4     MDS User Manual 
           - Refer Mantra_MDS_L0_Manual_Windows.pdf 
 
-1.5      MDT Testing Kit Url
+ 1.5     MDT Testing Kit Url
           http://test.mosip.io/phase2/run
 
 
-### 2. Set up client utility as below
+
+### 2. Set up client utility to feed device information
 
 
 Please find the Steps to run DeviceRegisterAndDeRegister utility using any IDE
 
- 1.     Import the project mds-testing-kit/mosip-device-reg/DeviceRegisterAndDeRegister  into IDE
+ 1.     Import the project https://github.com/mosip/mds-testing-kit/tree/master/mosip-device-reg/DeviceRegisterAndDeRegister  into IDE
 
  2.     Check/put your login credential  in DeviceRegisterAndDeRegister\src\main\resources\commonData.properties
 
@@ -43,9 +43,7 @@ Please find the Steps to run DeviceRegisterAndDeRegister utility using any IDE
  8.     After running deviceRegistration steps at last we can see option for de-registration of devices like
 
   
-    Do want to de-register the device  press Y/N  Press Y for de-register the deivce  or
-
-    Press N to exit the program execution.
+    Do you want to de-register the device  press Y/N  Press Y for de-register the deivce  or Press N to exit the program execution.
 
  9.     Logs can be found here DeviceRegisterAndDeRegister\testRun\logs.
 
