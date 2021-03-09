@@ -28,7 +28,7 @@ Now run the initialization.java inside registration.client file.
 
 If you have ran the Registration client prior to this you may have faced an error as below:
 
-![Intellij IDE Error](https://github.com/ICTASL/UDI-poc/blob/master/documentations/localSetup/registration-client/IntelliJ_Error.png)
+![Intellij IDE Error](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/IntelliJ_Error.png)
 
 This error comes due to the manifest file missing based on your db.conf. 
 In order to resolve this you may have to visit the place you built the registration client prior to this and locate the MANIFEST.MF and copy it to the main directory of your cloned registration repo.
@@ -41,4 +41,4 @@ This error comes due to the IDE configuration of command line execution. Mostly 
 Open ‘edit run/debug configuration’ dialog.
 Select Edit configurations and select Initialization.
 As shown in the below image the shorten command line is set to ‘user-local default none’. You need to change that to ‘@argFiles (java9+)’. If that also throws the same error try other options in the dropdown.
-![Configuration dialog](https://github.com/ICTASL/UDI-poc/blob/master/documentations/localSetup/registration-client/configuration_dialog.JPG)
+![Configuration dialog](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
