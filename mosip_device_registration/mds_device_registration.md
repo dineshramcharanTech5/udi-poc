@@ -71,6 +71,7 @@
 		
 
  ### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner 
+    
     REf : https://github.com/ICTASL/UDI-poc/blob/master/documentations/postman_collection/Device%20Registration%20Flow.postman_collection.json
 
     Running  Authentication for Admin/Partner Login    
