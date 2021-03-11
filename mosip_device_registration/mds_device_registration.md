@@ -29,36 +29,38 @@
 	 1.     Import the project https://github.com/mosip/mds-testing-kit/tree/master/mosip-device-reg/DeviceRegisterAndDeRegister  into IDE
 
 	 
-  2.     Check/put your login credential  in DeviceRegisterAndDeRegister\src\main\resources\commonData.properties
-			         E.g partner_user/admin_user	& their passwords
+  	 2.     Check/put your login credential  in DeviceRegisterAndDeRegister\src\main\resources\commonData.properties
+		   E.g partner_user/admin_user	& their passwords
 
 	 3.     Check environment related files here DeviceRegisterAndDeRegister\src\main\resources\dbFiles
-				        E.g masterdatasl.cfg.xml, pmssl.cfg.xml, regdevicesl.cfg.xml  ( append <sl> suffix at the end)
+		   E.g masterdatasl.cfg.xml, pmssl.cfg.xml, regdevicesl.cfg.xml  ( append <sl> suffix at the end)
 
 	 4.     Check provider details or prerequisite data to run the application here  DeviceRegisterAndDeRegister\dataFolder\deviceData.csv
-				        E.g
-                 dType,deviceId,deviceCode,purpose,serviceVersion,deviceSubId,firmware,deviceStatus,env,certification,callbackId,serialNo,make,model,type,deviceSubType,deviceProvider,deviceProviderId,name,description,deviceTypeCode,zoneCode,regCenterId,partnerType,policyGroup
+		 E.g
+                                  
+		dType,deviceId,deviceCode,purpose,serviceVersion,deviceSubId,firmware,deviceStatus,env,certification,callbackId,serialNo,make,model,type,deviceSubType,deviceProvider,deviceProviderId,name,description,deviceTypeCode,zoneCode,regCenterId,partnerType,policyGroup
              
-Iris,9f6b499b-09b7-4867-a032-a9ebfb1af1fa,9f6b499b-09b7-4867-a032-a9ebfb1af1fa,Registration,1.0.0,[1-2-3],1.0.0,READY,Staging,L0,http://127.0.0.1:4501/,000003621382,MANTRA,MATISDX,Iris,Double,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Double Iris,To capture Iris,IRS,RBT,99999,Device_Provider,Device_Provider
+	Iris,9f6b499b-09b7-4867-a032-a9ebfb1af1fa,9f6b499b-09b7-4867-a032-a9ebfb1af1fa,Registration,1.0.0,[1-2-3],1.0.0,READY,Staging,L0,http://127.0.0.1:4501/,000003621382,MANTRA,MATISDX,Iris,Double,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Double Iris,To capture Iris,IRS,RBT,99999,Device_Provider,Device_Provider
              
-Finger,b85f19d8-01da-43b6-b3a1-c8ee92fd3cac,b85f19d8-01da-43b6-b3a1-c8ee92fd3cac,Registration,1.0.0,[1-2-3],1.0.0,READY,Staging,L0,http://127.0.0.1:4501/,000055555555,MANTRA,MORPHS60,Finger,Slap,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Finger Scanner,To capture FRS,FRS,RBT,99999,Device_Provider,Device_Provider
+	Finger,b85f19d8-01da-43b6-b3a1-c8ee92fd3cac,b85f19d8-01da-43b6-b3a1-c8ee92fd3cac,Registration,1.0.0,[1-2-3],1.0.0,READY,Staging,L0,http://127.0.0.1:4501/,000055555555,MANTRA,MORPHS60,Finger,Slap,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Finger Scanner,To capture FRS,FRS,RBT,99999,Device_Provider,Device_Provider
              
-Face,6f3811f4-1b09-4570-be27-1a1792c1e28c,6f3811f4-1b09-4570-be27-1a1792c1e28c,Registration,1.0.0,[0],1.0.0,READY,STAGING,L0,http://127.0.0.1:4501/,98AE05C0,MANTRA,MFACE,Face,Full face,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Camera,To capture photo,CMR,RBT,99999,Device_Provider,Device_Provider
+	Face,6f3811f4-1b09-4570-be27-1a1792c1e28c,6f3811f4-1b09-4570-be27-1a1792c1e28c,Registration,1.0.0,[0],1.0.0,READY,STAGING,L0,http://127.0.0.1:4501/,98AE05C0,MANTRA,MFACE,Face,Full face,Mantra Softech India Pvt. Ltd.,729aaa95-d812-4285-9231-c0200a970401,Camera,To capture photo,CMR,RBT,99999,Device_Provider,Device_Provider
 
 
-	 5.     Go to Runner.java class (DeviceRegisterAndDeRegister\src\main\java\com\mosip\io\Runner.java) right click on class and click on java application select run            as run configuration.
+
+	 5.     Go to Runner.java class (DeviceRegisterAndDeRegister\src\main\java\com\mosip\io\Runner.java) right click on class and click on java application 		select run as run configuration.
 
 	 6.     Give the vm arumgent 
-				       E.g 
-				       -Dtype=<Finger -Denv.user=<dev> -DbaseUrl=<https://dev.mosip.net>
-				 
-				       -Dtype=All -Denv.user=sl -DbaseUrl=https://aws.digitalid.lgcc.gov.lk		
+		       E.g 
+		       -Dtype=<Finger -Denv.user=<dev> -DbaseUrl=<https://dev.mosip.net>
+
+		       -Dtype=All -Denv.user=sl -DbaseUrl=https://aws.digitalid.lgcc.gov.lk		
 
 	 7.     vm arumgent -Dtype values can be either Finger,Face,Iris and Auth or All (to run all types at one-shot) and sl as Denv.user
 
 	 8.     After running deviceRegistration steps at last we can see option for de-registration of devices like
 
-				      Do you want to de-register the device  press Y/N  Press Y for de-register the deivce  or Press N to exit the program execution.
+		 Do you want to de-register the device  press Y/N  Press Y for de-register the deivce  or Press N to exit the program execution.
 
 	 9.     Logs can be found here DeviceRegisterAndDeRegister\testRun\logs.
 
@@ -68,7 +70,7 @@ Face,6f3811f4-1b09-4570-be27-1a1792c1e28c,6f3811f4-1b09-4570-be27-1a1792c1e28c,R
 	           as part of the registration of respective bio metrice devices to mosip platform
 		
 
-### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner
+ ### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner
 
 
     Running  Authentication for Admin/Partner Login    
