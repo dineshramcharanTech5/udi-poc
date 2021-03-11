@@ -1,5 +1,6 @@
 ### Bio-Metrices Device Set up in windows environment ( Dual IRIS & Fingerprint Device)
 
+
  1.     Set up following device drivers as shown in 1.1 to 1.3 and follow the MDS User manual 
 
 
@@ -66,12 +67,11 @@
 
 
 	
- ### Note : Above steps can be performed also through device registration API's and in practice vendor invoke  these APIS
-	           as part of the registration of respective bio metrice devices to mosip platform
+ ### Note : Above functionality can be achieved through device registration API's and in practice vendor invoke these APIS as part of the registration of respective  		  bio metrice devices to mosip platform
 		
 
- ### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner
-
+ ### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner 
+    REf : https://github.com/ICTASL/UDI-poc/blob/master/documentations/postman_collection/Device%20Registration%20Flow.postman_collection.json
 
     Running  Authentication for Admin/Partner Login    
       https://aws.digitalid.lgcc.gov.lk/v1/authmanager/authenticate/useridPwd
@@ -120,8 +120,8 @@ E.g
   Select code FROM regdevice.registered_device_master where device_id='1f4a6922-7040-48c5-a2f4-6879d3ae5ecd'and serial_number='000003621382'
 
 
-
-
+### for comprehensive guide on Device Registration API Flow With Postman can be found from 
+    Refer : https://github.com/ICTASL/UDI-poc/blob/master/mosip_device_registration/device_registration_api_setup_guide.docx	
 
  
  
