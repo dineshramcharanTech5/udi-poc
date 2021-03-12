@@ -2,7 +2,7 @@
 
 This guide lists out all the required steps and supportive materials in setting up biometric devices especially Manthra Dual IRIS & Fingerprint Device) in windows environment.
 
-1. Set up following device drivers as shown in i to iii and follow the MDS User manual
+1. Set up following device drivers as shown in **i** to **iii** and follow the MDS User manual
 
 
       i.    MATISX Driver Setup (Dual IRIS)
@@ -96,9 +96,9 @@ This guide lists out all the required steps and supportive materials in setting 
 ### Related Databases & their tables 
 
 
-  pms : partner
-  regdevice : secure_biometric_interface, registered_device_master, device_detail
-  master.device_spec, device_master
+* pms : partner
+* regdevice : secure_biometric_interface, registered_device_master, device_detail
+* master.device_spec, device_master
 
 ####Note : for a comprehensive guide on Device Registration API Flow With Postman can be found from
 Ref: https://github.com/ICTASL/UDI-poc/blob/master/mosip_device_registration/device_registration_api_setup_guide.docx	
