@@ -61,7 +61,7 @@ Navigate to Bulk Upload
 
 
 Click on upload data
-![Upload File](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
+![Upload File](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration_client/standalone/uploadFile.JPG)
 
 
 Select insert operation and select machine table and choose your machine_master.csv file.
