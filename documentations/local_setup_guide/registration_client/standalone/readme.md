@@ -57,9 +57,11 @@ Edit the following fields :
 Once you have populated the csvs login to admin in https://aws.digitalid.lgcc.gov.lk/admin-ui. 
 
 Navigate to Bulk Upload
+![Bulk Upload](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
 
 
 Click on upload data
+![Upload File](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
 
 
 Select insert operation and select machine table and choose your machine_master.csv file.
