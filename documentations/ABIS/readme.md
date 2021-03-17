@@ -1,7 +1,7 @@
 # ABIS Integration in mosip
 Go to the following location inside cloned repo (for now it will be in lgcc) https://github.com/mosip/mosip-infra/tree/1.1.3/deployment/sandbox-v2/utils/onboard/partner
 
-#### There are 4 json files to be edited 
+## There are 4 json files to be edited 
 
 1. ABIS Partner - 
 	Navigate to utils/onboard/partner/data/partner and edit abis.json. Update the details in that as per the ABIS vendor. As in our case it's tech5-abis.
@@ -16,7 +16,7 @@ Navigate to utils/onboard/partner/data/policy_groups and edit the abis.json. Thi
 4. ABIS Certificates - 
 	Navigate to utils/onboard/partner/certs/abis and add the ABIS certificates. These certificates are provided by ABIS providers in our case Tech5.
 
-##### Once the above jsons are edited then execute the following commands :
+## Once the above jsons are edited then execute the following commands :
 
 1. .onboard.py policy_group data/policy_groups/abis.json
 2. .onboard.py policy_group data/policies/abispolicy.json
@@ -24,7 +24,7 @@ Navigate to utils/onboard/partner/data/policy_groups and edit the abis.json. Thi
 
 > You can verify the above details correctly added to mosip database by trying out swagger urls
 
-##### Next login to the sandbox and follow the below steps
+## Next login to the sandbox and follow the below steps
 1. navigate to mosip-config and editing Registration-processor-mz.properties. Change the following : 
 ```
 registration.processor.policy.id=tech5-abis
