@@ -57,7 +57,7 @@ Edit the following fields :
 Once you have populated the csvs login to admin in https://aws.digitalid.lgcc.gov.lk/admin-ui. 
 
 Navigate to Bulk Upload
-![Bulk Upload](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
+![Bulk Upload](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration_client/standalone/masterUpload.JPG)
 
 
 Click on upload data
