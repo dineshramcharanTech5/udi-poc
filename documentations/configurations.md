@@ -13,4 +13,4 @@ keys	: /srv/nfs/mosip/
 
 port:30090
 user: postgres
-pass: mosip123
+pass: <>
