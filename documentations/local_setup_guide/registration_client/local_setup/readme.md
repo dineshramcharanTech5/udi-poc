@@ -21,6 +21,10 @@ private static String upgradeServer = "http://localhost:80";
 			<version>0.9-rc1</version>
 		</dependency>
 10. Import the maven changes again.
+11. Travers to registration-services/src/main/resources/ and edit spring.propertiesy, change the value like below
+	```
+	mosip.hostname = aws.digitalid.lgcc.gov.lk
+	```
 Now run the initialization.java inside registration.client file.
 
 
