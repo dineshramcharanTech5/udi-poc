@@ -2,7 +2,7 @@
 
 #### Steps to setup pre registration on local environment
 
-1. Clone https://github.com/mosip/mosip-ref-impl.git
+1. Clone https://github.com/ICTASL/mosip-ref-impl.git
 2. Open directory of pre-registration-ui
 3. Run npm install
 4. Run ng serve / npm run start

@@ -1,6 +1,7 @@
 # ABIS Integration in mosip
 Go to the following location inside cloned repo (for now it will be in lgcc) https://github.com/mosip/mosip-infra/tree/1.1.3/deployment/sandbox-v2/utils/onboard/partner
 
+
 ## There are 4 json files to be edited 
 
 1. ABIS Partner - 
