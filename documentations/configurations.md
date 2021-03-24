@@ -12,14 +12,14 @@
 ## DB Server
 
 * port:30090
-* user: postgres
-* pass: mosip123
+* username: postgres
+* password: mosip123
 
 
 Module : Admin
 
 * URL    :https://aws.digitalid.lgcc.gov.lk/admin-ui
-* username : 110122/Techno@123, 110006/mosip
+* username/password : 110122/Techno@123, 110006/mosip
 
 Module : Pre-Registration Client
 
@@ -30,28 +30,28 @@ Module : Pre-Registration Client
     - mock MDS / mosip whitelisted biometrics devices 
                  
 * Action    : Run the run.batch of reg-client upon success on above prerequisites
-* username  : operator1/root
+* username/password  : operator1/root
 
 
 
 Module : Pre-Registration UI
 * URL    : https://aws.digitalid.lgcc.gov.lk/pre-registration-ui
-* username : email/OTP
+* username/password : email/OTP
 
 
-Module : IAM /Keyclock
+Module : IAM : Keyclock
 * URL    :   https://aws.digitalid.lgcc.gov.lk/keycloak/auth/
-* username : admin/admin
+* username/password : admin/admin
 
 
 Module : ActiveMQ
-* URL    : https://aws.digitalid.lgcc.gov.lk/admin/
-* username : admin/abc123
+* URL    :  https://aws.digitalid.lgcc.gov.lk/activemq/admin/queues.jsp
+* username/password : admin/abc123
 
 
 Module : Minio
 * URL    :   https://aws.digitalid.lgcc.gov.lk/minio/login
-* username : /
+* username/password : 
 
 
 
@@ -72,15 +72,15 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IktjYWlOZVFac3NfX1BVYV9UaWJ1NGdkbHU4WWNFZUM4MktuSEc3
 
 Grafana - MZ
 * URL   :   https://aws.digitalid.lgcc.gov.lk/mz-grafana/login
-* Email/Username : 
+* Email/username/token/password : ISPfGJZ2S4saNjkBJHsaaEPeTftkBfLYU67dEjxq
 * Password:
 
 Grafana - DMZ
 * URL   :    https://aws.digitalid.lgcc.gov.lk/dmz-grafana/
-* Email/Username : 
-* Password:
+* Email/username/token/password : hStHWZyypSP2k3DzcjCyKRQxl51gFy9C4Q0kENim
+
 
 Kibana 
 * URL   :  https://aws.digitalid.lgcc.gov.lk/kibana/
-* Username : 
+* username/password : 
 
