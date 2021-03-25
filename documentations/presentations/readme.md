@@ -57,3 +57,8 @@
 35. MOSIP Deployment Part 6 Post Installation checks https://youtu.be/oVijzhsKD5U Build & Deploy Video 27 Minutes
 36. MOSIP Database Schema part1 https://youtu.be/LWculQc2-Kw ID Schema Video 75 Minutes
 37. MOSIP Database Schema part2 https://youtu.be/zKFcogoeg5w ID Schema Video 65 Minutes
+
+
+#### Mosip weekly cadence sessions :
+
+* https://nextcloud.internal.icta.lk/index.php/apps/files/?dir=/SLUID/PoC/mosip_meeting_sessions&fileid=2860413#
