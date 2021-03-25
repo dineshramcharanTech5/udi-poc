@@ -1,0 +1,759 @@
+[
+    {
+      "id": "IDSchemaVersion",
+      "inputRequired": false,
+      "type": "number",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "ID Schema Version",
+      "label": {
+        "primary": "IDSchemaVersion"
+      },
+      "controlType": null,
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "none",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": null,
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "IdSchemaVersion"
+    },
+    {
+      "id": "UIN",
+      "inputRequired": false,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "UIN",
+      "label": {
+        "primary": "UIN"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "none",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": null,
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "UIN"
+    },
+    {
+      "id": "fullName",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "Full Name",
+      "label": {
+        "secondary": "සම්පූර්ණ නම",
+        "primary": "Full Name"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{3,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "FullName",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "name"
+    },
+    {
+      "id": "dateOfBirth",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "dateOfBirth",
+      "label": {
+        "secondary": "උපන්දිනය",
+        "primary": "DOB"
+      },
+      "controlType": "ageDate",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(1869|18[7-9][0-9]|19[0-9][0-9]|20[0-9][0-9])/([0][1-9]|1[0-2])/([0][1-9]|[1-2][0-9]|3[01])$",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "DateOfBirth",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "identity.isNew || (identity.isUpdate && (identity.updatableFieldGroups contains 'GuardianDetails' || identity.updatableFieldGroups contains 'DateOfBirth'))"
+        }
+      ],
+      "subType": "dateOfBirth"
+    },
+    {
+      "id": "gender",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "gender",
+      "label": {
+        "secondary": "ස්ත්‍රී පුරුෂ භාවය",
+        "primary": "Gender"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "Gender",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "Gender"
+    },
+    {
+      "id": "residenceStatus",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "residenceStatus",
+      "label": {
+        "secondary": "පදිංචි තත්ත්වය",
+        "primary": "Residence Status"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "kyc",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "ResidenceStatus",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "residenceStatus"
+    },
+    {
+      "id": "nationalIdentityNumber",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "nationalIdentityNumber",
+      "label": {
+        "secondary": "ජාතික හැඳුනුම් අංකය",
+        "primary": "National Identity Number"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "kyc",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^([0-9]{9}[x|X|v|V]|[0-9]{12})$",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "NationalIdentityNumber",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "none"
+    },
+    {
+      "id": "addressLine1",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "addressLine1",
+      "label": {
+        "secondary": "ලිපිනය පළමු පේළිය",
+        "primary": "AddressLine1"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Address",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "addressLine1"
+    },
+    {
+      "id": "addressLine2",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "addressLine2",
+      "label": {
+        "secondary": "ලිපිනය දෙවැනි පේළිය",
+        "primary": "AddressLine2"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Address",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "addressLine2"
+    },
+    {
+      "id": "addressLine3",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "addressLine3",
+      "label": {
+        "secondary": "ලිපිනය තුන්වන පේළිය",
+        "primary": "AddressLine3"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Address",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "addressLine3"
+    },
+    {
+      "id": "province",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "province",
+      "label": {
+        "secondary": "පළාත",
+        "primary": "Province"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Location",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "Province"
+    },
+    {
+      "id": "district",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "district",
+      "label": {
+        "secondary": "දිස්ත්‍රික්කය",
+        "primary": "District"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Location",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "District"
+    },
+    {
+      "id": "city",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "city",
+      "label": {
+        "secondary": "නගරය",
+        "primary": "City"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?=.{0,50}$).*",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Location",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "City"
+    },
+    {
+      "id": "postalCode",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "postalCode",
+      "label": {
+        "secondary": "තැපැල් කේතය",
+        "primary": "Postal Code"
+      },
+      "controlType": "dropdown",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^[(?i)A-Z0-9]{5}$|^NA$",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "Postal",
+      "group": "Location",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "Postal Code"
+    },
+    {
+      "id": "phone",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "phone",
+      "label": {
+        "secondary": "දුරකතන අංකය",
+        "primary": "Phone"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^(?:7|0|94)[0-9]{9,10}$",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "email",
+      "group": "Phone",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "Phone"
+    },
+    {
+      "id": "email",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "email",
+      "label": {
+        "secondary": "විද්යුත් තැපෑල",
+        "primary": "Email"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [
+        {
+          "type": "regex",
+          "validator": "^[A-Za-z0-9_\\-]+(\\.[A-Za-z0-9_]+)*@[A-Za-z0-9_-]+(\\.[A-Za-z0-9_]+)*(\\.[a-zA-Z]{2,})$",
+          "arguments": []
+        }
+      ],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": "email",
+      "group": "Email",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [],
+      "subType": "Email"
+    },
+    {
+      "id": "parentOrGuardianName",
+      "inputRequired": true,
+      "type": "simpleType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "parentOrGuardianName",
+      "label": {
+        "secondary": "දෙමාපියන්ගේ නම",
+        "primary": "Parent Name"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "evidence",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "GuardianDetails",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "( identity.isNew && identity.isChild ) || ( identity.isUpdate && identity.isChild )"
+        }
+      ],
+      "subType": "parentOrGuardianName"
+    },
+    {
+      "id": "parentOrGuardianRID",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "parentOrGuardianRID",
+      "label": {
+        "secondary": "දෙමාපිය RID",
+        "primary": "Parent RID"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "evidence",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "GuardianDetails",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "( identity.isChild && (identity.parentOrGuardianUIN == nil || identity.parentOrGuardianUIN == empty) )"
+        }
+      ],
+      "subType": "RID"
+    },
+    {
+      "id": "parentOrGuardianUIN",
+      "inputRequired": true,
+      "type": "string",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "parentOrGuardianUIN",
+      "label": {
+        "secondary": "දෙමාපිය UIN",
+        "primary": "Parent UIN"
+      },
+      "controlType": "textbox",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "evidence",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "GuardianDetails",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "( identity.isChild && (identity.parentOrGuardianRID == nil || identity.parentOrGuardianRID == empty) )"
+        }
+      ],
+      "subType": "UIN"
+    },
+    {
+      "id": "proofOfIdentity",
+      "inputRequired": true,
+      "type": "documentType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "proofOfIdentity",
+      "label": {
+        "secondary": "අනන්‍යතා සාධනය",
+        "primary": "Identity Proof"
+      },
+      "controlType": "fileupload",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "Documents",
+      "required": true,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "identity.isNew || ( identity.isUpdate && identity.updatableFields contains 'fullName')"
+        }
+      ],
+      "subType": "POI"
+    },
+    {
+      "id": "proofOfDateOfBirth",
+      "inputRequired": true,
+      "type": "documentType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "proofOfDateOfBirth",
+      "label": {
+        "secondary": "උපන් දිනය සාධනය",
+        "primary": "DOB Proof"
+      },
+      "controlType": "fileupload",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "Documents",
+      "required": false,
+      "bioAttributes": null,
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "identity.isUpdate && identity.updatableFields contains 'dateOfBirth'"
+        }
+      ],
+      "subType": "POB"
+    },
+    {
+      "id": "individualBiometrics",
+      "inputRequired": true,
+      "type": "biometricsType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "",
+      "label": {
+        "secondary": "අයදුම්කරු ජෛවමිතික",
+        "primary": "Applicant Biometrics"
+      },
+      "controlType": "biometrics",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "Biometrics",
+      "required": true,
+      "bioAttributes": [
+        "leftEye",
+        "rightEye",
+        "rightIndex",
+        "rightLittle",
+        "rightRing",
+        "rightMiddle",
+        "leftIndex",
+        "leftLittle",
+        "leftRing",
+        "leftMiddle",
+        "leftThumb",
+        "rightThumb",
+        "face"
+      ],
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "(identity.isNew || identity.isLost || ( identity.isUpdate && identity.updatableFieldGroups contains 'Biometrics'))"
+        }
+      ],
+      "subType": "applicant"
+    },
+    {
+      "id": "individualAuthBiometrics",
+      "inputRequired": true,
+      "type": "biometricsType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "Used to hold biometrics only for authentication",
+      "label": {
+        "secondary": "සත්‍යාපනය ජෛවමිතික",
+        "primary": "Authentication Biometrics"
+      },
+      "controlType": "biometrics",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": null,
+      "required": false,
+      "bioAttributes": [
+        "leftEye",
+        "rightEye",
+        "rightIndex",
+        "rightLittle",
+        "rightRing",
+        "rightMiddle",
+        "leftIndex",
+        "leftLittle",
+        "leftRing",
+        "leftMiddle",
+        "leftThumb",
+        "rightThumb",
+        "face"
+      ],
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "!identity.isChild && identity.isUpdate && !(identity.updatableFieldGroups contains 'Biometrics' || identity.updatableFieldGroups contains 'GuardianDetails')"
+        }
+      ],
+      "subType": "applicant-auth"
+    },
+    {
+      "id": "parentOrGuardianBiometrics",
+      "inputRequired": true,
+      "type": "biometricsType",
+      "minimum": 0,
+      "maximum": 0,
+      "description": "",
+      "label": {
+        "secondary": "භාරකරු ජෛවමිතික",
+        "primary": "Guardian Biometrics"
+      },
+      "controlType": "biometrics",
+      "fieldType": "default",
+      "format": "none",
+      "validators": [],
+      "fieldCategory": "pvt",
+      "alignmentGroup": null,
+      "visible": null,
+      "contactType": null,
+      "group": "Biometrics",
+      "required": false,
+      "bioAttributes": [
+        "leftEye",
+        "rightEye",
+        "rightIndex",
+        "rightLittle",
+        "rightRing",
+        "rightMiddle",
+        "leftIndex",
+        "leftLittle",
+        "leftRing",
+        "leftMiddle",
+        "leftThumb",
+        "rightThumb",
+        "face"
+      ],
+      "requiredOn": [
+        {
+          "engine": "MVEL",
+          "expr": "(identity.isChild && identity.isNew) || (identity.isUpdate && identity.updatableFieldGroups contains 'GuardianDetails')"
+        }
+      ],
+      "subType": "introducer"
+    }
+  ]
