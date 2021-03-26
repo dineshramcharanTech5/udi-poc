@@ -33,7 +33,19 @@ spring.mail.port=587
     ``` Kc1 delete pod <pod-name> ```
     - It will automatically restart the pod.
 
-5. If you need to receive emails in only the primary language, do the following changes
+5. If you need to change any email subjects relating to the registration processor, open and edit thhe following properties in registration-processor-mz.properties file.
+``` 
+registration.processor.uin.generated.subject=UIN Generated
+registration.processor.duplicate.uin.subject=Registration Failed because you have already Registered
+registration.processor.reregister.subject=Re-Register because there was a Technical Issue
+registration.processor.uin.activated.subject=Uin is activated successfully
+registration.processor.uin.deactivated.subject=Uin is deactivated
+registration.processor.updated.subject=UIN Details Updated
+```
+
+6. If the above properties are changed you will have to restart the regproc-message-sender-stage
+ 
+7. If you need to receive emails in only the primary language, do the following changes
     - Login to console server.
     - Go to /srv/nfs/mosip/mosip-config/sandbox
 	- Open and edit application-mz.properties file and change the following property ``` mosip.notification.language-type=PRIMARY ```.
@@ -59,4 +71,3 @@ mosip.kernel.auth.proxy-email=false
     - Do a delete in for those pods: 
     ``` Kc1 delete pod <pod-name> ```
     - It will automatically restart the pod. These pods will be sufficient for the changes done to the proxy otp.
-
