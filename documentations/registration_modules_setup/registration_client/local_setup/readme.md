@@ -1,4 +1,4 @@
-# Registration Client Setup in local 
+# Registration Client Setup in local environment 
  
 1. Add Environment variable as follow : 
 	```
@@ -6,7 +6,7 @@
 	variable value: aws.digitalid.lgcc.gov.lk
 	```
 2. Download java 11 with fx using the following link (https://www.azul.com/downloads/zulu-community/?version=java-11-lts&os=windows&package=jdk-fx)
-3. Clone https://github.com/mosip/registration.git
+3. Clone https://github.com/ICTASL/registration
 4. Go inside the directory named as registration.
 5. Import maven changes
 6. Make sure that the correct jdk with fx is pointed in ide
@@ -15,7 +15,7 @@ cd registration-client/src/main/java/io/mosip/registration/controller
 8. Make sure the following value is present in the file on line 39
 private static String upgradeServer = "http://localhost:80";
 9. Then come back to registration-services and add the following snippet into pom.xml file
-	<dependency>
+	       <dependency>
 			<groupId>io.mosip.mock.sdk</groupId>
 			<artifactId>mock-sdk</artifactId>
 			<version>0.9-rc1</version>
