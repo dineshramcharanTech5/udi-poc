@@ -6,7 +6,7 @@
 	variable value: aws.digitalid.lgcc.gov.lk
 	```
 2. Download java 11 with fx using the following link (https://www.azul.com/downloads/zulu-community/?version=java-11-lts&os=windows&package=jdk-fx)
-3. Clone https://github.com/ICTASL/registration
+3. Clone https://github.com/ICTASL/registration & check out to version 1.1.3 for ICTSL/UDI POC
 4. Go inside the directory named as registration.
 5. Import maven changes
 6. Make sure that the correct jdk with fx is pointed in ide
@@ -21,15 +21,15 @@ private static String upgradeServer = "http://localhost:80";
 			<version>0.9-rc1</version>
 		</dependency>
 10. Import the maven changes again.
-11. Travers to registration-services/src/main/resources/ and edit spring.propertiesy, change the value like below
+11. Switch to registration-services/src/main/resources/ and edit spring.property, change the value as given below
 	```
 	mosip.hostname = aws.digitalid.lgcc.gov.lk
 	```
-Now run the initialization.java inside registration.client file.
+Now run the initialization.java inside registration.client file ( Refer screenshot for run configurations)
 
 
 
-# You may face the following issues
+# Common Issues & Resolutions
 
 
 #### 1. Registration client being run before 
@@ -50,3 +50,7 @@ Open ‘edit run/debug configuration’ dialog.
 Select Edit configurations and select Initialization.
 As shown in the below image the shorten command line is set to ‘user-local default none’. You need to change that to ‘@argFiles (java9+)’. If that also throws the same error try other options in the dropdown.
 ![Configuration dialog](https://github.com/ICTASL/UDI-poc/blob/master/documentations/local_setup_guide/registration-client/configuration_dialog.JPG)
+
+#### 3. Error running 'Initialization': REG-INIT-001 --> Application found in invalid state, tampering detected ! 
+
+This error due to inconsistencies either in .mosipkeys or db folders.  to resolve clear those entries and re attempt 
