@@ -1,4 +1,4 @@
-Following is a collection of video sessions covering foundational ID system concept, architectuaral detailsofon MOSIP platform plus useful cadence sessions shared by MOSIP.
+Following is a collection of video sessions covering foundational ID system concept, architectuaral details of MOSIP platform plus other useful cadence sessions shared by MOSIP.
 
 #### Foundational ID System & MOSIP Architecture :
 
