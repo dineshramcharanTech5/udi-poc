@@ -21,10 +21,6 @@
    
    1.9   [registration_modules_setup](documentations/registration_modules_setup)
    
-   * [apis.md](documentations/apis.md)
-   * [configurations.md](documentations/configurations.md)
-   * [repositories.md](documentations/repositories.md)
-   * [standards](documentations/standards)
    
 2. [infrastructure deployments](infrastructure_deployment)
    
@@ -39,3 +35,14 @@
    * [custom_email_templates](master_data_setup/custom_email_templates.xlsx)
    * [mosip_master_data_db_changes](master_data_setup/mosip_master_db_changes.xlsx)
    * [transliteration_changes_sinhala](master_data_setup/transliteration_changes_sinhala.xlsx)
+
+4. [poc_guides](poc_guides)
+   
+   4.1   [apis.md](poc_guides/apis.md)
+  
+   4.2   [configurations.md](poc_guides/configurations.md)
+   
+   4.3   [repositories.md](poc_guides/repositories.md)
+   
+   4.4   [standards](poc_guides/standards)
+         
