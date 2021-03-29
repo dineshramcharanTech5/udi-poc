@@ -1,5 +1,6 @@
+Following is a collection of video sessions covering foundational ID system concept, architectuaral detailsofon MOSIP platform plus useful cadence sessions shared by MOSIP.
 
-#### Foundational ID System & MOSIP Architecture
+#### Foundational ID System & MOSIP Architecture :
 
 1. Introduction to Foundational ID system and MOSIP Architecture
    No Video Description Video link TOPIC Asset Type Duration Units0 All Video 
@@ -40,7 +41,7 @@
 26. Security and Performance https://youtu.be/B6_tqzQmrXQ Security Video 40 Minutes
 27. Security and Privacy in MOSIP https://youtu.be/56eKSs4tZkI Security Video 50 Minutes
 
-#### Mosip Demosntrations :
+#### Mosip Demonstrations :
 
 28. Commons Deep Dive https://youtu.be/jLR3uw5zdkA Commons Video 3 Minutes
 29. MOSIP 1.1 - End to End Demo https://youtu.be/VjzJgTegJWE Introduction Video 12 Minutes
