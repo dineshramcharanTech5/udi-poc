@@ -1,4 +1,4 @@
-## SLUDI-POC Sandbox Modules 
+#### SLUDI-POC Server Details   
 
 ## AWS Server
 
@@ -24,6 +24,9 @@
 * password: 1qaz2wsx@0okm
 
 
+#### SLUDI-POC Sandbox Modules 
+
+
 Module : Admin
 
 * URL    :https://aws.digitalid.lgcc.gov.lk/admin-ui
@@ -47,7 +50,7 @@ Module : Pre-Registration UI
 * username/password : email/OTP
 
 
-Module : IAM : Keyclock
+Module : IAM/Keyclock
 * URL    :   https://aws.digitalid.lgcc.gov.lk/keycloak/auth/
 * username/password : admin/admin
 
@@ -81,7 +84,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IktjYWlOZVFac3NfX1BVYV9UaWJ1NGdkbHU4WWNFZUM4MktuSEc3
 Grafana - MZ
 * URL   :   https://aws.digitalid.lgcc.gov.lk/mz-grafana/login
 * Email/username/token/password : ISPfGJZ2S4saNjkBJHsaaEPeTftkBfLYU67dEjxq
-* Password:
+
 
 Grafana - DMZ
 * URL   :    https://aws.digitalid.lgcc.gov.lk/dmz-grafana/
@@ -90,5 +93,5 @@ Grafana - DMZ
 
 Kibana 
 * URL   :  https://aws.digitalid.lgcc.gov.lk/kibana/
-* username/password : 
+* Email/username/token/password : 
 
