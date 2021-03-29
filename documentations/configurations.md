@@ -16,6 +16,14 @@
 * password: mosip123
 
 
+
+## ICTA DockerHub
+
+* URL:https://hub.docker.com
+* username: udipoc
+* password: 1qaz2wsx@0okm
+
+
 Module : Admin
 
 * URL    :https://aws.digitalid.lgcc.gov.lk/admin-ui
