@@ -102,7 +102,9 @@ Once it's running you can look at the print screen on what happens to the data p
 
 
 #### How to clear the ABIS cache
-
+   navigate to the following 
+   ```cd /opt/Tech5/T5-Plugin-R20210210/```
+   
 1. Use the following command to check what java services are running 
         ```ps aux | grep java```
 2. Stop all the java services
