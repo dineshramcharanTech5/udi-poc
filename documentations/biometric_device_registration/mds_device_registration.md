@@ -64,13 +64,13 @@ This guide lists out all the required steps and supportive materials in setting 
       ix.   Logs can be found here DeviceRegisterAndDeRegister\testRun\logs.
 
 
-#### Note : Above functionality can be achieved through device registration API's and in practice vendor invoke these APIS as part of the registration of respective  		  bio metrice devices to mosip platform
+#### Note : Above functionality can also be achieved through device registration API's and in practice vendor invoke these APIS as part of the registration of respective  		  bio metrice devices to mosip platform
 
 
 ### API Flow for Registering a Device (IRIS/FINGER PRINT/FACIAL) with Mosip as device partner
 
-    Ref : https://github.com/ICTASL/UDI-poc/blob/master/documentations/postman_collection/Device%20Registration%20Flow.postman_collection.json
-
+* Refer device_registration_flow.postman_collection.json in : https://github.com/ICTASL/UDI-poc/tree/master/documentations/postman_collection 
+  
 * Running  Authentication for Admin/Partner Login    
     - https://aws.digitalid.lgcc.gov.lk/v1/authmanager/authenticate/useridPwd
 
@@ -95,11 +95,10 @@ This guide lists out all the required steps and supportive materials in setting 
 
 ### Related Databases & their tables 
 
-
-* pms : partner
+* pms       : partner
 * regdevice : secure_biometric_interface, registered_device_master, device_detail
-* master.device_spec, device_master
+* master    : device_spec, device_master
 
 ####Note : for a comprehensive guide on Device Registration API Flow With Postman can be found from
-Ref: https://github.com/ICTASL/UDI-poc/blob/master/mosip_device_registration/device_registration_api_setup_guide.docx	
 
+Ref: https://github.com/ICTASL/UDI-poc/blob/master/documentations/biometric_device_registration/device_registration_api_setup_guide.docx
