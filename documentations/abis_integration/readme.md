@@ -1,6 +1,7 @@
 # ABIS Integration in mosip
-Go to the following location inside cloned repo (for now it will be in lgcc) https://github.com/mosip/mosip-infra/tree/1.1.3/deployment/sandbox-v2/utils/onboard/partner
-
+Go to the following location inside cloned repo (for now it will be in lgc1) https://github.com/mosip/mosip-infra/tree/1.1.3/deployment/sandbox-v2/utils/onboard/partner
+ 
+   lgc1 : 192.168.204.5 / 10.250.1.100
 
 ## There are 4 json files to be edited 
 
@@ -35,7 +36,7 @@ registration.processor.subscriber.id=tech5-abis
 
 After the restart your changes in the mosip side is completed.
 
-# Starting ABIS(LGCC)
+# Starting ABIS (LGC1)
 
 1. Navigate to /opt/Tech5/T5-Plugin-R20210210 
 Edit the following fields in config.properties
@@ -76,7 +77,7 @@ Now wait for the activeMQ data to be feeded from device registration.
 
 #### Listening in ABIS plugin
 
-1. Login to ABIS installed lgcc infrastructure
+1. Login to ABIS installed lgc1 infrastructure
 2. Navigate to /opt/Tech5/T5-Plugin-R20210210
 3. Check if nohup is running if its running tailf or cat nohup.out
 4. If nohup is not running run the following command to listen 
@@ -137,3 +138,10 @@ Once it's running you can look at the print screen on what happens to the data p
 
 
 	Once the above steps are complete the ABIS will be fresh as new.
+	
+	
+#### Technical Guides 
+
+- T5-ABIS Developer Guide :  http://wiki.tech5.tech/Tech5-AbisDeveloperGuide.html
+	
+	
