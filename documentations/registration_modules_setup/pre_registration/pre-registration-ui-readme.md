@@ -125,6 +125,40 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 
 
 
+#### Initial docker configuration
+
+#### Below step has already been done in current sandbox environment one time and not needed re-running for each & every docker image
+
+
+1. If you want to create the docker secrets after the cluster is created please run the below command from sandboxv2 directory in Console:
+
+	for mz:
+
+	an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.mz.kube_config}}"
+
+	for dmz:
+
+	an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.dmz.kube_config}}"       
+
+
+
+2. Pull the images from Docker Hub after login successfully
+
+	E.g. docker pull udipoc/pre-registration-ui:1.1.3
+
+
+
+3. Open tmux terminal session and execute prereg module related Ansible script to load modules
+
+	tmux
+	an playbooks/prereg.yml
+
+
+4. Check images
+
+	kc1 get pods | grep prereg
+
+
 
 
 #### Configuration steps for pulling private docker image and deploying it in a MOSIP Sandbox environment
@@ -174,42 +208,6 @@ This guide include steps that can be performed to build and deploy Pre-Registrat
 8 . Edit versions.yml to reflect docker image changes required
 
 	ui: 'prereg-ui': 'udipoc/pre-registration-ui:1.1.3'
-
-
-
-
-#### Optional step
-
-#### Below step is done one time and not needed re-running
-
-
-1. If you want to create the docker secrets after the cluster is created please run the below command from sandboxv2 directory in Console:
-
-	for mz:
-
-	an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.mz.kube_config}}"
-
-	for dmz:
-
-	an playbooks/docker-secrets.yml --extra-vars "kube_config={{clusters.dmz.kube_config}}"       
-
-
-
-2. Pull the images from Docker Hub after login successfully
-
-	docker pull udipoc/pre-registration-ui:1.1.3
-
-
-
-3. Open tmux terminal session and execute prereg module related Ansible script to load modules
-
-	tmux
-	an playbooks/prereg.yml
-
-
-4. Check images
-
-	kc1 get pods | grep prereg
 
 
 
