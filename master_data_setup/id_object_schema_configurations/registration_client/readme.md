@@ -2,7 +2,8 @@
 
 1. Change schema JSON in regclient according to the requirement.
 2. Copy the schema section in it.
-3. Open https://aws.digitalid.lgcc.gov.lk/v1/authmanager/swagger-ui.html#/authmanager/authenticateUseridPwdUsingPOST and use the following to authenticate :
+3. Open https://aws.digitalid.lgcc.gov.lk/v1/authmanager/swagger-ui.html#/authmanager/authenticateUseridPwdUsingPOST or
+ https://aws.digitalid.lgcc.gov.lk/v1/authmanager/swagger-ui.html#/operations/authmanager/userIdOTPUsingPOST and use the following to authenticate :
 ``` 
 {
   "id": "string",
