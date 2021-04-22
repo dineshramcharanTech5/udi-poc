@@ -2,11 +2,12 @@
 
 1. Login to console server.
 2. Go to /srv/nfs/mosip/mosip-config/sandbox
-3. Open and edit pre-registration-demographic.json according to the requirement JSON similar to the RegClient you did above. (Keep in mind that variables are same but content on how it is created is different so don't copy paste from Reg client)
-4. Next open and edit pre-registration-mz.properties. Change the idschema version in this according to your regclient schema version.
-5. Once all the changes are done in the file level you need to commit the changes
-6. Git add the files which you have changed.
-7. Git commit with an appropriate message.
+3. Open and edit pre-registration-demographic.json according to the requirement JSON similar to the RegClient you did above. (Keep in mind that variables are same but content on how it is created is different so don't copy paste from Reg client) 
+   Note: currently there are two fields types : default & dynamic. Ref : Reg client section for adding dynamic fields through API
+5. Next open and edit pre-registration-mz.properties. Change the idschema version in this according to your regclient schema version.
+6. Once all the changes are done in the file level you need to commit the changes
+7. Git add the files which you have changed.
+8. Git commit with an appropriate message.
 
 >	You don't have to push the changes as it is pointed to the local setup as it refers only to mosip-config inside /srv/nfs/mosip. Please make sure your changes are committed by checking git status before going to the next step.
 
