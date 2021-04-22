@@ -1,0 +1,45 @@
+{
+	"id": "io.mosip.dynamicfield.create",
+	"metadata": {},
+	"request": {
+		"active": true,
+		"dataType": "string",
+		"description": "Profession/ Occupation",
+		"fieldVal": [
+			{
+				"code": "101",
+				"value": "Artist",
+				"langCode": "eng",
+				"active": true
+			},
+			{
+				"code": "102",
+				"value": "Architect",
+				"langCode": "eng",
+				"active": true
+			},
+			{
+				"code": "103",
+				"value": "Carpenter",
+				"langCode": "eng",
+				"active": true
+			},
+			{
+				"code": "104",
+				"value": "Doctor",
+				"langCode": "eng",
+				"active": true
+			},
+			{
+				"code": "105",
+				"value": "Engineer",
+				"langCode": "eng",
+				"active": true
+			}
+		],
+		"langCode": "eng",
+		"name": "profession"
+	},
+	"requesttime": "2018-12-10T06:12:52.994Z",
+	"version": "string"
+}
