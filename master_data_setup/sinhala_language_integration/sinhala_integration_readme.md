@@ -12,12 +12,18 @@ title
 daysofweek-list
 ```
 2. Existing data records should be duplicated for the sin language code as well
-3. Create sin.json file in mosip-ref-impl/pre-registration-ui/src/assets/i18n folder with the sinhala translation values.
-4. Build and deploy the pre-registration application
-5.  Add sinhala labels to the pre-registration and reg-client schema and update using the guide in the link. ``` (https://github.com/ICTASL/UDI-poc/tree/master/documentations/id_object_schema_configurations) ```
-6. Login to console server.
-7. Go to /srv/nfs/mosip/mosip-config/sandbox
-8. Open and edit application-mz.properties file and change the following properties.
+3. Add dynamic data fields in both languages (code should be same for both the languages)
+4. Create sin.json file in mosip-ref-impl/pre-registration-ui/src/assets/i18n folder with the sinhala translation values.
+5. Add dynamic field names to the TRANSLITERATE_FIELDS array in mosip-ref-impl/pre-registration-ui/src/app/app.constants.ts
+6. Add sin case to switch in index.ts (code changes in https://github.com/ICTASL/udi-poc-mosip-ref-impl/tree/1.1.3-transliteration-changes)
+7. Delete the old pre-registration from the db as they will give a issue when secondary language is changed (delete from applicant_demographic and reg_appointment table in          mosip_prereg)	
+6. Build and deploy the pre-registration application
+7.  Add sinhala labels to the pre-registration and reg-client schema and update using the guide in the link. ``` (https://github.com/ICTASL/UDI-poc/tree/master/documentations/id_object_schema_configurations) ```
+8.  Do code changes available in https://github.com/ICTASL/udi-poc-registration/tree/1.1.3-translit
+9.  Deploy the reg client changes including translit jar to docker (Guide will be included soon)
+10. Login to console server.
+11. Go to /srv/nfs/mosip/mosip-config/sandbox
+12. Open and edit application-mz.properties file and change the following properties.
 ``` 
 mosip.supported-languages=eng,ara,fra,sin
 mosip.secondary-language=sin
