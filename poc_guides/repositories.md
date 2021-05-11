@@ -1,5 +1,6 @@
 #### Repositories
 
+-  https://github.com/ICTASL/commons.git
 -  https://github.com/ICTASL/udi-poc-mosip-config
 -  https://github.com/ICTASL/udi-poc-mosip-ref-impl
 -  https://github.com/ICTASL/udi-poc-registration
