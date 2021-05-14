@@ -27,7 +27,8 @@ private static String upgradeServer = "http://localhost:80";
 	```
 Now run the initialization.java inside registration.client file ( Refer screenshot for run configurations)
 
-
+**Note**:  for running mock biometrices , pls download mockmds & run parallely in command console with the app
+        
 
 # Common Issues & Resolutions
 
@@ -53,4 +54,6 @@ As shown in the below image the shorten command line is set to ‘user-local def
 
 #### 3. Error running 'Initialization': REG-INIT-001 --> Application found in invalid state, tampering detected ! 
 
-This error due to inconsistencies either in .mosipkeys or db folders.  to resolve clear those entries and re attempt 
+This error due to inconsistencies either in .mosipkeys or db folders. pls try clearing mosip key in Users directory & the contents of db folder of the registration directory. re attempt once after cleaing those entries   
+ E.g C:\Users\NIRANJAN\.mosipkeys    
+
