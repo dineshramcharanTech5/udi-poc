@@ -15,11 +15,13 @@ cd registration-client/src/main/java/io/mosip/registration/controller
 8. Make sure the following value is present in the file on line 39
 private static String upgradeServer = "http://localhost:80";
 9. Then come back to registration-services and add the following snippet into pom.xml file
-	       <dependency>
-			<groupId>io.mosip.mock.sdk</groupId>
-			<artifactId>mock-sdk</artifactId>
-			<version>0.9-rc1</version>
-		</dependency>
+ 
+		       **<dependency>
+				<groupId>io.mosip.mock.sdk</groupId>
+				<artifactId>mock-sdk</artifactId>
+				<version>0.9-rc1</version>
+			</dependency>**
+			
 10. Import the maven changes again.
 11. Switch to registration-services/src/main/resources/ and edit spring.property, change the value as given below
 	```
