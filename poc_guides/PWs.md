@@ -9,9 +9,16 @@
 * sandbox : /home/mosipuser/mosip-infra/deployment/sandbox-v2
 * keys	: /srv/nfs/mosip/
 
-#### DB Server
+#### DB Server in 1.1.3 env
 
 * port:30090
+* username: postgres
+* password: mosip123
+
+#### DB Server in 1.1.5 env
+ 
+* host/ip : digitalid.lgcc.gov.lk / 192.168.204.11
+* port:5432
 * username: postgres
 * password: mosip123
 
