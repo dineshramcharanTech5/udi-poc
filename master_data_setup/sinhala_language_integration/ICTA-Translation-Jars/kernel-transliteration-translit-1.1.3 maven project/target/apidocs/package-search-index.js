@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"io.mosip.kernel.transliteration.translit.constant"},{"l":"io.mosip.kernel.transliteration.translit.impl"}]

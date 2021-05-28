@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"io.mosip.kernel.transliteration.translit.constant","l":"LanguageIdConstant"},{"p":"io.mosip.kernel.transliteration.translit.constant","l":"TransliterationErrorConstant"},{"p":"io.mosip.kernel.transliteration.translit.impl","l":"TranslitUtilImpl"}]

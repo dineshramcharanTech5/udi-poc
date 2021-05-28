@@ -1,0 +1,26 @@
+cmd.exe
+/X
+/C
+""C:\Program Files\OpenJDK-11\jdk-11\bin\javadoc.exe" @options @packages"
+D:\kerneltransliterationtranslit\target\apidocs\allclasses-index.html = 1621410440876
+D:\kerneltransliterationtranslit\target\apidocs\allclasses.html = 1621410440892
+D:\kerneltransliterationtranslit\target\apidocs\allpackages-index.html = 1621410440880
+D:\kerneltransliterationtranslit\target\apidocs\constant-values.html = 1621410440802
+D:\kerneltransliterationtranslit\target\apidocs\deprecated-list.html = 1621410440888
+D:\kerneltransliterationtranslit\target\apidocs\element-list = 1621410440767
+D:\kerneltransliterationtranslit\target\apidocs\help-doc.html = 1621410440907
+D:\kerneltransliterationtranslit\target\apidocs\index-all.html = 1621410440868
+D:\kerneltransliterationtranslit\target\apidocs\index.html = 1621410440898
+D:\kerneltransliterationtranslit\target\apidocs\member-search-index.js = 1621410440865
+D:\kerneltransliterationtranslit\target\apidocs\member-search-index.zip = 1621410440866
+D:\kerneltransliterationtranslit\target\apidocs\options = 1621410438597
+D:\kerneltransliterationtranslit\target\apidocs\overview-summary.html = 1621410440901
+D:\kerneltransliterationtranslit\target\apidocs\overview-tree.html = 1621410440844
+D:\kerneltransliterationtranslit\target\apidocs\package-search-index.js = 1621410440858
+D:\kerneltransliterationtranslit\target\apidocs\package-search-index.zip = 1621410440861
+D:\kerneltransliterationtranslit\target\apidocs\packages = 1621410438598
+D:\kerneltransliterationtranslit\target\apidocs\script.js = 1621410440925
+D:\kerneltransliterationtranslit\target\apidocs\search.js = 1621410440939
+D:\kerneltransliterationtranslit\target\apidocs\stylesheet.css = 1621410440914
+D:\kerneltransliterationtranslit\target\apidocs\type-search-index.js = 1621410440862
+D:\kerneltransliterationtranslit\target\apidocs\type-search-index.zip = 1621410440864
