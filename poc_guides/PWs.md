@@ -9,9 +9,17 @@
 * sandbox : /home/mosipuser/mosip-infra/deployment/sandbox-v2
 * keys	: /srv/nfs/mosip/
 
-#### DB Server
+#### DB Server in 1.1.3 env
 
+* host/ip : aws.digitalid.lgcc.gov.lk
 * port:30090
+* username: postgres
+* password: mosip123
+
+#### DB Server in 1.1.5 env
+ 
+* host/ip : digitalid.lgcc.gov.lk / 192.168.204.11
+* port:5432
 * username: postgres
 * password: mosip123
 
@@ -74,7 +82,7 @@
 	eyJhbGciOiJSUzI1NiIsImtpZCI6Il9oOXdEZ2M2MDdtNlRRZ0FheVJPaDRCY1RGZm5TcERsMm11VjJacnFhSFEifQ.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9uYW1lc3BhY2UiOiJrdWJlcm5ldGVzLWRhc2hib2FyZCIsImt1YmVybmV0ZXMuaW8vc2VydmljZWFjY291bnQvc2VjcmV0Lm5hbWUiOiJhZG1pbi11c2VyLXRva2VuLXJkbjdxIiwia3ViZXJuZXRlcy5pby9zZXJ2aWNlYWNjb3VudC9zZXJ2aWNlLWFjY291bnQubmFtZSI6ImFkbWluLXVzZXIiLCJrdWJlcm5ldGVzLmlvL3NlcnZpY2VhY2NvdW50L3NlcnZpY2UtYWNjb3VudC51aWQiOiIzMmQyNmU3MS1jZDM0LTQ2MjYtYjRlYy05NzJmZWViNDk3NDciLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZXJuZXRlcy1kYXNoYm9hcmQ6YWRtaW4tdXNlciJ9.anjj4wZEcRhGvoklAsBHXDelyY202KQEE8NVjiXLCe01dlSYEtGD0DzOfL2gnkuSaJRVnXyejRGwYOZHDK58qy8_xhFnbP247vuZ-fy3tDhCROIdK-XYSODuysDVb5ncXROuHZYRyqVkTtIeOILcoK7_lBT3HDk2Oclqisp066LWBHn-3dFVhjQUE0Ft_FyzwQJe_l805G2YTHf_p9y1yFyH-TBSGTtl_YVANO99hY-zFGcSCz6PhFMfkvvCku-34n9P9yI-BBJWRer2oj68i16QWzRtZoOewMfmLVdoY-wv61YZm7YczodVBdAQmGgX6bek3u1cklJ_fYBAF6au1A
 
 
-### K8s Dashboard - MDMZZ
+### K8s Dashboard - DMZ
 * URL   :   https://aws.digitalid.lgcc.gov.lk/dmz-dashboard
 * Token : 
 
@@ -83,12 +91,12 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IktjYWlOZVFac3NfX1BVYV9UaWJ1NGdkbHU4WWNFZUM4MktuSEc3
 
 ### Grafana - MZ
 * URL   :   https://aws.digitalid.lgcc.gov.lk/mz-grafana/login
-* Email/username/token/password : ISPfGJZ2S4saNjkBJHsaaEPeTftkBfLYU67dEjxq
+* Email/username/token/password : admin / ISPfGJZ2S4saNjkBJHsaaEPeTftkBfLYU67dEjxq 
 
 
 ### Grafana - DMZ
 * URL   :    https://aws.digitalid.lgcc.gov.lk/dmz-grafana/
-* Email/username/token/password : hStHWZyypSP2k3DzcjCyKRQxl51gFy9C4Q0kENim
+* Email/username/token/password : admin / hStHWZyypSP2k3DzcjCyKRQxl51gFy9C4Q0kENim
 
 
 ### Kibana 

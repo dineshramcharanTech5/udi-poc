@@ -104,7 +104,7 @@ Once it's running you can look at the print screen on what happens to the data p
 
 #### How to clear the ABIS cache
    navigate to the following 
-   ```cd /opt/Tech5/T5-Plugin-R20210210/```
+   ```cd /opt/Tech5/t5Plugin/```
    
 1. Use the following command to check what java services are running 
         ```ps aux | grep java```
@@ -130,7 +130,7 @@ Once it's running you can look at the print screen on what happens to the data p
 	```for i in Master FingerTC FingerM IrisTC IrisM; do sh /opt/Tech5/T5-ABIS/$i/bin/catalina.sh start; sleep 10; done```	
 	
 6. start t5plugin :
-	 ```nohup java -jar t5plugin1.3r20210319.jar &```
+	 ```nohup java -jar t5plugin-2.0.r20210420.jar --spring.config.location=application.properties &```
 	 ```tailf nohup.out```
 7. getStatus of abis
 
