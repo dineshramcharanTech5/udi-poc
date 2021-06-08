@@ -1,13 +1,13 @@
 ## SLUDI-POC Server Details   
 
+AWS   : https://aws.digitalid.lgcc.gov.lk/
+LGC2  : https://digitalid.lgcc.gov.lk/
+
 #### AWS Server
 
 * aws.digitalid.lgcc.gov.lk
 * ip  :13.127.255.199  / 10.20.20.10
 
-
-* sandbox : /home/mosipuser/mosip-infra/deployment/sandbox-v2
-* keys	: /srv/nfs/mosip/
 
 #### DB Server in 1.1.3 env
 
@@ -34,6 +34,8 @@
 
 ## SLUDI-POC Sandbox Modules 
 
+* sandbox : /home/mosipuser/mosip-infra/deployment/sandbox-v2
+* keys	: /srv/nfs/mosip/
 
 ### Module : Admin
 
