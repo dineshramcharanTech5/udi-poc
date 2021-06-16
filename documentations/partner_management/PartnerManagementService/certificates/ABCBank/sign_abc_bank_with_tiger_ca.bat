@@ -1,0 +1,1 @@
+keytool -gencert -rfc -infile abc_bank.csr -outfile abc_bank.cer -alias root_tiger_ca -sigalg SHA256WithRSA -dname "CN=Signed-Partner,O=ABC Bank,S=KA,C=IN" -validity 365 -keystore root_tiger_ca.p12 -storetype PKCS12

@@ -1,0 +1,1 @@
+keytool -gencert -rfc -infile abc_misp.csr -outfile abc_misp.cer -alias root_tiger_ca -sigalg SHA256WithRSA -dname "CN=Signed-Mispp,O=ABC MISP,S=KA,C=IN" -validity 365 -keystore ..\ABCBank\root_tiger_ca.p12 -storetype PKCS12
