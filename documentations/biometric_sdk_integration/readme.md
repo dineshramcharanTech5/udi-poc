@@ -5,15 +5,12 @@ Pre-requisite : Download the relavant exteranl bio-sdk vendor's setup files from
 
 
   
-# Bio-SDK integration with reg-client module-1.1.5 :
+## Bio-SDK integration with reg-client module-1.1.5 :
 
 This guide lists out all the steps and supportive materials on
-
-   ## How to package exteranl bio-sdk dependencis with mosip reg-client-1.1.5 as a standalone application
- 
  
 
-# How to package exteranl bio-sdk dependencis with mosip reg-client-1.1.5 as a standalone application
+### How to package exteranl bio-sdk dependencis with mosip reg-client-1.1.5 as a standalone application
    
 1.  Clone https://github.com/ICTASL/udi-poc-registration-client.git & switch to relavant feature branch  
 2.  Commit and push bio-sdk dependencies in a zip file located in persistent volume location
@@ -77,9 +74,9 @@ This guide lists out all the steps and supportive materials on
 
 11. Update ‘registration-mz.properties’  with all properties given in bio-sdk-properties.txt 
     
-12. Run the run.bat and monitor the sdk log traces for successful bio-sdk intilizations and their fucntionality 
+12. Run the run.bat and monitor registration client sdk log traces for successful bio-sdk intilizations and their functionality 
 
 
 
-Note : Currently ,Step 10 is being optimizated for smooth integration with reg-client
+Note : Currently,Step 10 is being optimizted for smooth integration with reg-client
 	
