@@ -17,3 +17,4 @@ Pre-requisites:
 DRP application flow:
 
 
+![DRP-New update Flow (1)](https://user-images.githubusercontent.com/11026172/124411635-8ace9b80-dd6a-11eb-8fab-2f339fbcbfc1.png)
