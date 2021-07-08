@@ -1,6 +1,8 @@
 #### DRP Configuration/Integration 
 
-Follow the steps mentioned in the document, to setup the External stage locally.
+ - Follow the steps mentioned in the document, to setup the External stage locally.
+ - Follow Keycloak cloud/local setup doc to configure a realm for the DRP app.
+ - Follow client & backend service setup doc to setup the Drp Anngular client & DRP Spring Boot service.
 
 
 Note: Make sure the pre-requisites have been setup correctly beofer proceeding with the setup.
