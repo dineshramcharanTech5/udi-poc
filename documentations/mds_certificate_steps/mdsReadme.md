@@ -4,7 +4,7 @@ We need to make sure that the MOSIP ROOT and MOSIP PMS certificates are availabl
 
 #### Steps to add the MOSIP ROOT certificate
 
-1. Get a authentication token Request URL: POST https://testsludi.lgcc.gov.lk/v1/authmanager/authenticate/clientidsecretkey Request Body:
+1. Get a authentication token Request URL: https://testsludi.lgcc.gov.lk/v1/authmanager/swagger-ui.html#/authmanager/clientIdSecretKeyUsingPOST Request Body:
 
 ```
 {
